@@ -42,7 +42,7 @@
 </style>
 </head>
  
-<body>
+<body onload="load()">
 
 <div id="background_container">
   <br><b>PRACTICE</b><br><br>
@@ -51,6 +51,7 @@
   <div id="task_container">
     <!-- the area in which the MOT is dislayed -->
   </div">
+   
   <div id='object1'><img src='webfile/object.png' width = '20px' onclick='object1clicked(event)'/></div>
   <div id='fixationcross'><img src='webfile/fixation.png' width = '18px' /></div> 
 
@@ -65,6 +66,9 @@
 
 <script>
 
+function load() {
+}
+  
 function validateForm() {
     var u_id = "<?php global  $UID; echo  $UID; ?>";
     document.forms["frm"]["UID"].value = u_id;
