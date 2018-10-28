@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Instructions</title>
 <style>
-#ex2_container { text-align:left; font-size:120%;}
+#container { text-align:left; font-size:110%;}
 </style>
 </head>
  
@@ -53,26 +53,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $validrequest = 0;
       $UID = "dodgyuser";
    }
-
-   if (!empty($_POST["gender"]) && !empty($_POST["age"])) {
-      $gender = test_input($_POST["gender"]);
-      $age = test_input($_POST["age"]);
-
-      $s = $dir . "/" . $UID . ".txt";
-      $f = fopen($s, "a") or die("101 Unable to open file!" . $s);
-      $txt = $ip . " " . $date . " " . $browser . " Age: " . $age . "\tGender: " . $gender .  "\n";
-      fwrite($f, $txt);
-      fclose($f);
-   }
 }
 
 ?>
 
-<div id="ex2_container">
-<br><b>INSTRUCTIONS (PLEASE READ CAREFULLY)</b><br><br>
-Hare are detailed instructions. <br><br>
+<div id="container">
+<br><b>PRACTICE</b><br><br>
+Let's practice. Here is an example of what you will see.<br><br>
 
-<form name="frm" action="practice.php" method="post" onsubmit="return validateForm()">
+ 
+<!-- create an area in which the MOT is dislayed -->
+ 
+<form name="frm" action="experiment.php" method="post" onsubmit="return validateForm()">
   <input type="text" name="UID" hidden>
   <input type="text" name="firsttrial" hidden><input type="submit" value="Continue"/>
 </form>
