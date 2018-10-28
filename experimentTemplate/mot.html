@@ -23,6 +23,8 @@
  font-size:110%; 
  width: 400px; 
  height: 300px; 
+ top: 100px;
+ left: 100px;
  background: black;
 }
  
@@ -43,12 +45,14 @@
 <body>
 
 <div id="background_container">
- <br><b>PRACTICE</b><br><br>
- Let's practice. Here is an example of what you will see.<br><br>
+  <br><b>PRACTICE</b><br><br>
+  Let's practice. Here is an example of what you will see.<br><br>
 
- <div id="task_container">
-   <!-- the area in which the MOT is dislayed -->
- </div">
+  <div id="task_container">
+    <!-- the area in which the MOT is dislayed -->
+  </div">
+  <div id='object1'><img src='webfile/object.png' width = '20px' onclick='object1clicked(event)'/></div>
+  <div id='fixationcross'><img src='webfile/cross.png' width = '18px' /></div> 
 
 </div>
  
@@ -68,5 +72,8 @@ function validateForm() {
     return true;  
 }
 
+function object1clicked(event) {
+}
+   
 </script>
 </html>
