@@ -5,7 +5,7 @@
 <title>Instructions</title>
 <style>
  
-#taskcontainer { 
+#task_container { 
  text-align:center; 
  font-size:110%; 
  width: 400px; 
@@ -28,18 +28,17 @@
 <body>
 
 <div id="background_container">
-<br><b>PRACTICE</b><br><br>
-Let's practice. Here is an example of what you will see.<br><br>
+ <br><b>PRACTICE</b><br><br>
+ Let's practice. Here is an example of what you will see.<br><br>
 
-<div id="task_container">
-</div">
+ <div id="task_container">
+   <!-- the area in which the MOT is dislayed -->
+ </div">
  
-<!-- create an area in which the MOT is dislayed -->
- 
-<form name="frm" action="experiment.php" method="post" onsubmit="return validateForm()">
-  <input type="text" name="UID" hidden>
-  <input type="text" name="firsttrial" hidden><input type="submit" value="Continue"/>
-</form>
+ <form name="frm" action="experiment.php" method="post" onsubmit="return validateForm()">
+   <input type="text" name="UID" hidden>
+   <input type="text" name="firsttrial" hidden><input type="submit" value="Continue"/>
+ </form>
 
 </div>
 </body>
