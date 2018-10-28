@@ -6,6 +6,7 @@
 <style>
  
 #task_container { 
+ position: absolute;
  text-align:center; 
  font-size:110%; 
  width: 400px; 
@@ -14,6 +15,7 @@
 }
  
 #background_container { 
+ background-image: url("precarious_laptop_bkg.png");
  text-align:center; 
  align:center; 
  font-size:110%; 
@@ -35,6 +37,7 @@
    <!-- the area in which the MOT is dislayed -->
  </div">
  
+ <br>
  <form name="frm" action="experiment.php" method="post" onsubmit="return validateForm()">
    <input type="text" name="UID" hidden>
    <input type="text" name="firsttrial" hidden><input type="submit" value="Continue"/>
