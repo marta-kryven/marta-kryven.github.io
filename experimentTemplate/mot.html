@@ -136,9 +136,17 @@ function load() {
      var h = document.getElementById("background_container").innerHTML;    // adding objects
       
      for (i = 0; i < num_objects; i++) {
+        
+        var x = Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius;
+        var y = Math.random()*(MOT_height-repulsion_radius*2) + repulsion_radius;
       
-        object_x.push(  Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius );
-        object_y.push(  Math.random()*(MOT_height-repulsion_radius*2) + repulsion_radius ); 
+        while (!check_constraints(x,y)) {
+          x = Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius;
+          y = Math.random()*(MOT_height-repulsion_radius*2) + repulsion_radius;
+        }
+      
+        object_x.push( x );
+        object_y.push( y ); 
          
         var idx = i+1; 
         var clickfun = "targetclicked";
@@ -174,8 +182,22 @@ function distractorclicked(event) {
 //      animate objects 
 //
 // ------------------------------------------------------------------------
-  
-function check_constraints() { 
+ 
+function distance(x1, y1, x2, y2) {
+  var dist = (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2);
+  return Math.sqrt(dist);
+}
+ 
+function check_constraints(x, y) { 
+ 
+   for (i = 0; i < object_x.length; i++) {
+    
+     if ( distance( x, y, object_x[i], object_y[i]) < 10 + repulsion_radius) {
+      return false;
+     }
+    
+   }
+   return true;
 }
   
 function init_object_positions() {
