@@ -255,7 +255,7 @@ function keypressed(event) {
  
   if (event.keyCode == 32) {
      // restarting the trial
-     for (i = 0; i < num_targets; i++) {
+     for (i = 0; i < num_objects; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).src = "webfile/object.png";
@@ -308,11 +308,11 @@ function check_constraints(x, y, idx) {
    return true;
 }
   
-function init_object_positions(num_targets) {
+function init_object_positions(num) {
     var offx = document.getElementById("task_container").offsetLeft;
     var offy = document.getElementById("task_container").offsetTop;
   
-    for (i = 0; i < num_targets; i++) {
+    for (i = 0; i < num; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).style.left = offx + object_x[i]+"px";
@@ -320,8 +320,8 @@ function init_object_positions(num_targets) {
     }
 }
                                 
-function reset_object_positions(num_targets) {
-    for (var i = 0; i < num_targets; i++) {
+function reset_object_positions(num) {
+    for (var i = 0; i < num; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).style.left = "-500px";
