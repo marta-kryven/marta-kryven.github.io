@@ -59,7 +59,7 @@
 }
  
 #background_container { 
- background: blue;
+ background: black;
  position: relative;
  background-image: url("webfile/precarious_laptop_web.jpg");
  background-repeat: no-repeat;
@@ -109,7 +109,7 @@
 // --------------------------------------------------------------------------------------------------- 
 
 var container_width =  370;
-var  container_height = 280;
+var container_height = 280;
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation
 var frame_index = 0;             // where are we in the animation?
 var num_fixation_frames = 5;     // for how many frames to show fixation cross 
@@ -155,8 +155,8 @@ function load() {
      document.getElementById("background_container").innerHTML = h;
       
      // show fixation cross  
-     document.getElementById("fixationcross").style.left = 215+"px";
-     document.getElementById("fixationcross").style.top = 120+"px";
+     document.getElementById("fixationcross").style.left = container_width/2 +"px";
+     document.getElementById("fixationcross").style.top  = container_height/2 +"px";
       
      setTimeout(nextFrame, frameTiming); 
 }
@@ -173,6 +173,12 @@ function nextFrame() {
     document.getElementById("fixationcross").style.top = "-500px";
       
     // initialise object positions 
+    for (i = 0; i < num_objects; i++) {
+       var idx =  i+1;
+       var obj = "object" + idx;
+       document.getElementById(obj).style.left = object_x[i];
+       document.getElementById(obj).style.top = object_y[i];
+    }
      
   } else if (frame_index < num_fixation_frames + num_blink_frames) {
    
