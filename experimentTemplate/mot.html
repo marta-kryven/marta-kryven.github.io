@@ -238,15 +238,15 @@ function check_constraints(x, y, idx) {
     
      if (idx == i) continue; // do not check distance from self, obviousely
     
-     if ( distance( x, y, object_x[i], object_y[i]) < 10 + repulsion_radius) {
+     if ( distance( x, y, object_x[i], object_y[i]) < object_size/2 + repulsion_radius) {
       return false;
      }
     
-     if (  x < 10 + repulsion_radius || y < 10 + repulsion_radius ) {
+     if (  x < object_size/2 + repulsion_radius || y < object_size/2 + repulsion_radius ) {
       return false;
      }
     
-     if (  x + 10 > MOT_width - repulsion_radius || y + 10 > MOT_height - repulsion_radius ) {
+     if (  x + object_size/2 > MOT_width - repulsion_radius || y + object_size/2 > MOT_height - repulsion_radius ) {
       return false;
      }
     
