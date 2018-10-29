@@ -83,7 +83,9 @@
 //       variables for animation control 
 //
 // --------------------------------------------------------------------------------------------------- 
- 
+
+var container_width =  400;
+var  container_height = 250;
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation
 var frame_index = 0;             // where are we in the animation?
 var num_fixation_frames = 5;     // for how many frames to show fixation cross 
@@ -111,8 +113,8 @@ function load() {
       
      for (i = 0; i < num_objects; i++) {
       
-        object_x.push(Math.random()*380+15);
-        object_y.push(Math.random()*210+15); 
+        object_x.push(Math.random()*(container_width-30)/2+15);
+        object_y.push(Math.random()*(container_height-30)/2+15); 
          
         var idx = i+1; 
         var clickfun = "targetclicked";
