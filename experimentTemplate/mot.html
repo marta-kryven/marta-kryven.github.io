@@ -86,8 +86,10 @@ var waiting_for_response = 0;    // 1 if the trial finished and the subject has 
  
  
 function load() {
-     document.getElementById("fixationcross").style.left = "200px";
-     document.getElementById("fixationcross").style.top = "200px";
+     var w = document.getElementById("fixationcross").style.width/2;
+     var h = document.getElementById("fixationcross").style.height/2; 
+     document.getElementById("fixationcross").style.left = w+"px";
+     document.getElementById("fixationcross").style.top = h+"px";
      setTimeout(nextFrame, frameTiming); 
 }
   
