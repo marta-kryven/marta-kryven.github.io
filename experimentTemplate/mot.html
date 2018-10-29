@@ -110,8 +110,6 @@
 //
 // --------------------------------------------------------------------------------------------------- 
 
-var container_width =  370;
-var container_height = 280;
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation
 var frame_index = 0;             // where are we in the animation?
 var num_fixation_frames = 5;     // for how many frames to show fixation cross 
@@ -128,7 +126,8 @@ var object_y = [];
  
 function load() {
  
-     alert(document.getElementById("background_container").offsetWidth);
+     var container_width = document.getElementById("background_container").offsetWidth;
+     var container_height = document.getElementById("background_container").offsetHeight;
       
      // adding objects
      
