@@ -248,7 +248,7 @@ function reset_object_positions(num_targets) {
   
 function animate_objects() {
   
-  for (var i = 0; i < object_x.length; i++) {
+  for (var i = 0; i < /*object_x.length;*/ 1; i++) {
    
      // update position
    
@@ -264,8 +264,8 @@ function animate_objects() {
       newx = object_y[i] + object_velocity*Math.cos(object_angle[i]);
      }*/
    
-     //object_x[i] = newx;
-     //object_y[i] = newy;
+     object_x[i] = newx;
+     object_y[i] = newy;
   }
  
   init_object_positions(object_x.length);
