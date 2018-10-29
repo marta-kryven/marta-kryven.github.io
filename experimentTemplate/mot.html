@@ -171,20 +171,14 @@ var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_w
 //
 // --------------------------------------------------------------------------------------------------- 
 
- 
-function load() {
- 
+
+function init_object_positions() {
      var background_width = document.getElementById("background_container").offsetWidth;
      var background_height = document.getElementById("background_container").offsetHeight;
      
      var MOT_width = document.getElementById("task_container").offsetWidth;
      var MOT_height = document.getElementById("task_container").offsetHeight;
 
-     // alert(container_width + " " + container_height);
-    
-     
-     var h = document.getElementById("background_container").innerHTML;    // adding objects
-      
      for (i = 0; i < num_objects; i++) {
         
         var x = Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius;
@@ -198,28 +192,39 @@ function load() {
         object_x.push( x );
         object_y.push( y ); 
         object_angle.push(Math.random()*Math.PI*2);
-         
-        var idx = i+1; 
-        var clickfun = "targetclicked";
-        
-        if (i > num_targets-1) {
-           clickfun = "distractorclicked";
-        }
-         
-        h = h + "<div id='object" + idx + 
-                "'><img src='webfile/object.png' width = '" + object_size + "px' onclick='" + clickfun + 
-                "(event)'/></div>"; 
      }
-     
-     document.getElementById("background_container").innerHTML = h;
-      
+}
+ 
+finction fixation_cross() {
      // show fixation cross  
      var offx = document.getElementById("task_container").offsetLeft + MOT_width/2;
      var offy = document.getElementById("task_container").offsetTop + MOT_height/2;
      document.getElementById("fixationcross").style.left = offx +"px";
      document.getElementById("fixationcross").style.top  = offy +"px";
+}
+ 
+function load() {
+ 
+    init_object_positions();
+ 
+    var h = document.getElementById("background_container").innerHTML;    // adding objects
+ 
+    for (i = 0; i < num_objects; i++) {    
+        
+        var idx = i+1; 
+        var clickfun = "targetclicked";
+        if (i > num_targets-1) clickfun = "distractorclicked";
+         
+        h = h + "<div id='object" + idx + 
+                "'><img src='webfile/object.png' width = '" + object_size + "px' onclick='" + clickfun + 
+                "(event)'/></div>"; 
+    }
+     
+    document.getElementById("background_container").innerHTML = h;
       
-     setTimeout(nextFrame, frameTiming); 
+    fixation_cross(); 
+      
+    setTimeout(nextFrame, frameTiming); 
 }
 
 function targetclicked(event) {
@@ -252,11 +257,6 @@ function distractorclicked(event) {
  
 function keypressed(event) {
  
-  frame_index = 0; 
-  object_x = [];
-  object_y = [];
-  object_angle = []; 
- 
   if (event.keyCode == 32) {
      // restarting the trial
      for (i = 0; i < num_objects; i++) {
@@ -265,7 +265,13 @@ function keypressed(event) {
        document.getElementById(obj).src = "webfile/object.png";
     }
    
-     load();
+    frame_index = 0; 
+    object_x = [];
+    object_y = [];
+    object_angle = []; 
+    init_object_positions();
+    fixation_cross(); 
+    setTimeout(nextFrame, frameTiming); 
   }
 }
  
