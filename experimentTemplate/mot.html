@@ -133,7 +133,7 @@ var num_targets = 3;             // how many targets do we want to show
 var object_x = [];               // object coordinates
 var object_y = []; 
 var object_angle = [];           // object direction of movement
-var object_velocity = 0.1;
+var object_velocity = 1.1;
 var object_size = 25; 
  
 function load() {
@@ -251,7 +251,7 @@ function reset_object_positions(num_targets) {
   
 function animate_objects() {
   
-  for (var i = 0; i < /*object_x.length;*/ 1; i++) {
+  for (var i = 0; i < object_x.length; i++) {
    
      // update position
      var sign = -1;
