@@ -21,11 +21,17 @@
  position: relative;
  text-align:center; 
  font-size:110%; 
- width: 450px; 
+ width: 500px; 
  height: 300px; 
- top: 234px;
+ top: 200px;
  left: 362px;
  background: black;
+}
+ 
+#page_container { 
+ align:center; 
+ width: 100%;
+ height: 100%;
 }
  
 #background_container { 
@@ -60,7 +66,7 @@
   <div id='object1'><img src='webfile/object.png' width = '20px' onclick='object1clicked(event)'/></div>
   <div id='fixationcross'><img src='webfile/fixation.png' width = '18px' /></div> 
    
-  <div id='mesage'></div>
+  <!-- <div id='mesage'></div> -->
    
 </div>
  
@@ -96,7 +102,7 @@ function load() {
      var w = document.getElementById("task_container").width/2;
      var h = document.getElementById("task_container").height/2; 
      
-     document.getElementById("mesasge").innerHTML = "<br>" + w + "px " + h + "px"; 
+     alert( w + "px " + h + "px"); 
    
      document.getElementById("fixationcross").style.left = 200+"px";
      document.getElementById("fixationcross").style.top = 150+"px";
