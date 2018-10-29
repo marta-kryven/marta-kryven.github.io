@@ -150,11 +150,6 @@ var clicked_on_num_correct = 0;
  
 function load() {
  
-     frame_index = 0; 
-     object_x = [];
-     object_y = [];
-     object_angle = []; 
- 
      var background_width = document.getElementById("background_container").offsetWidth;
      var background_height = document.getElementById("background_container").offsetHeight;
      
@@ -227,9 +222,21 @@ function distractorclicked(event) {
 }  
   
  
-function keypressed(event){
+function keypressed(event) {
+ 
+  frame_index = 0; 
+  object_x = [];
+  object_y = [];
+  object_angle = []; 
+ 
   if (event.keyCode == 32) {
      // restarting the trial
+     for (i = 0; i < num_targets; i++) {
+       var idx =  i+1;
+       var obj = "object" + idx;
+       document.getElementById(obj).src = "webfile/object.png";
+    }
+   
      load();
   }
 }
