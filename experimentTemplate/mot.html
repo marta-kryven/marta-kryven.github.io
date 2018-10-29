@@ -281,7 +281,7 @@ function nextFrame() {
       
     // initialise object positions 
     init_object_positions(object_x.length);
-    document.getElementById("background_container").innerHTML = "The blinking objects are targets."
+    document.getElementById("message").innerHTML = "The blinking objects are targets."
    
   } else if (frame_index < num_fixation_frames + num_blink_frames) {
    
@@ -300,11 +300,11 @@ function nextFrame() {
     animate_objects();
     init_object_positions(object_x.length);
    
-    document.getElementById("background_container").innerHTML = "Your task is to keep track of the targets."
+    document.getElementById("message").innerHTML = "Your task is to keep track of the targets."
    
   } else {
    waiting_for_response = 1;  // no more frames, waiting for response
-   document.getElementById("background_container").innerHTML = "Now please click on the three target objects."
+   document.getElementById("message").innerHTML = "Now please click on the three target objects."
    return;
   }
    
