@@ -134,6 +134,7 @@ var object_x = [];               // object coordinates
 var object_y = []; 
 var object_angle = [];           // object direction of movement
 var object_velocity = 0.1;
+var object_size = 25; 
  
 function load() {
  
@@ -170,7 +171,7 @@ function load() {
         }
          
         h = h + "<div id='object" + idx + 
-                "'><img src='webfile/object.png' width = '20px' onclick='" + clickfun + 
+                "'><img src='webfile/object.png' width = '" + object_size + "px' onclick='" + clickfun + 
                 "(event)'/></div>"; 
      }
      
@@ -266,8 +267,8 @@ function animate_objects() {
       newx = object_y[i] + object_velocity*Math.cos(object_angle[i]);
      }*/
    
-     object_x[i] = newx;
-     object_y[i] = newy;
+     object_x[i] = object_x[i] + 0.1;
+     object_y[i] = object_y[i];
   }
  
   init_object_positions(object_x.length);
