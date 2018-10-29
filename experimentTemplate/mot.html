@@ -58,6 +58,13 @@
  height: 100%;
 }
  
+#message { 
+ align:center; 
+ font-size: 110%; 
+ text-align: center; 
+ font-colour: blue; 
+}
+ 
 #background_container { 
  background: black;
  position: relative;
@@ -80,9 +87,11 @@
 <div id = "page_container"> 
   <div id="background_container">
   
-    <br><b>LET'S PRACTICE</b><br><br>
-    Here is an example of what you will see.<br><br>
- 
+    <div id="mesage">
+      <br><b>LET'S PRACTICE</b><br><br>
+      Here is an example of what you will see.<br><br>
+    </div>
+   
     <div id="task_container">
        <!-- the area in which the MOT is dislayed -->
     </div>
@@ -92,7 +101,7 @@
  </div>
   
  <br>
- <!-- <div id='mesage'></div> -->
+
  <form name="frm" action="experiment.php" method="post" onsubmit="return validateForm()">
    <input type="text" name="UID" hidden>
    <input type="text" name="firsttrial" hidden><input type="submit" value="Continue" hidden/>
