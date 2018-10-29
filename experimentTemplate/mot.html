@@ -133,7 +133,7 @@ var num_targets = 3;             // how many targets do we want to show
 var object_x = [];               // object coordinates
 var object_y = []; 
 var object_angle = [];           // object direction of movement
-var object_velocity = 1.5;
+var object_velocity = 2.5;
 var object_size = 25; 
  
 // ---------------------------------------------------------------------------------------------------
@@ -200,7 +200,9 @@ function targetclicked(event) {
     event.target.src = "webfile/happy.png";
     clicked_on_num_objects++;
     clicked_on_num_correct++;
-  } else if (clicked_on_num_objects == num_targets) {
+  } 
+ 
+  if (clicked_on_num_objects == num_targets) {
     document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + "correctly.";
   }
 }
@@ -209,7 +211,9 @@ function distractorclicked(event) {
  if (clicked_on_num_objects < num_targets) {
     event.target.src = "webfile/sad.png";
     clicked_on_num_objects++;
- } else if (clicked_on_num_objects == num_targets) {
+ } 
+ 
+ if (clicked_on_num_objects == num_targets) {
     document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + "correctly.";
  }
 }  
