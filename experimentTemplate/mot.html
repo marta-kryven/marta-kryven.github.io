@@ -127,6 +127,9 @@ function load() {
      var container_width = document.getElementById("background_container").offsetWidth;
      var container_height = document.getElementById("background_container").offsetHeight;
      
+     var MOT_width = document.getElementById("task_container").offsetWidth;
+     var MOT_height = document.getElementById("task_container").offsetHeight;
+ 
      alert(container_width + " " + container_height);
      // adding objects
      
@@ -134,8 +137,8 @@ function load() {
       
      for (i = 0; i < num_objects; i++) {
       
-        object_x.push(  Math.random()*(container_width -repulsion_radius*2) + repulsion_radius );
-        object_y.push(  Math.random()*(container_height-repulsion_radius*2) + repulsion_radius ); 
+        object_x.push(  Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius );
+        object_y.push(  Math.random()*(MOT_height-repulsion_radius*2) + repulsion_radius ); 
          
         var idx = i+1; 
         var clickfun = "targetclicked";
@@ -152,8 +155,8 @@ function load() {
      document.getElementById("background_container").innerHTML = h;
       
      // show fixation cross  
-     document.getElementById("fixationcross").style.left = container_width/2 +"px";
-     document.getElementById("fixationcross").style.top  = container_height/2 +"px";
+     document.getElementById("fixationcross").style.left = MOT_width/2 +"px";
+     document.getElementById("fixationcross").style.top  = MOT_height/2 +"px";
       
      setTimeout(nextFrame, frameTiming); 
 }
