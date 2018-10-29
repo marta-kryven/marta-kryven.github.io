@@ -289,7 +289,7 @@ function animate_objects() {
      while (iter > 0 && !check_constraints(object_x[i] + object_velocity*Math.cos(object_angle[i]), 
                                            object_y[i] + object_velocity*Math.sin(object_angle[i]), i)
            ) {
-         object_angle[i] = object_angle[i]+sign*Math.PI/180.0;
+         object_angle[i] = object_angle[i]+sign*Math.PI/90.0;
          iter--;
      }
      
