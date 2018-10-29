@@ -133,7 +133,7 @@ var num_targets = 3;             // how many targets do we want to show
 var object_x = [];               // object coordinates
 var object_y = []; 
 var object_angle = [];           // object direction of movement
-var object_velocity = 1.1;
+var object_velocity = 0.5;
 var object_size = 25; 
  
 function load() {
@@ -256,11 +256,13 @@ function animate_objects() {
      // update position
      var sign = -1;
      if (Math.random() > 0.5) sign = 1;
-   
-     while (!check_constraints(object_x[i] + object_velocity*Math.sin(object_angle[i]), 
+     
+     var iter = 10;   
+     while (iter > 0 && !check_constraints(object_x[i] + object_velocity*Math.sin(object_angle[i]), 
                                object_y[i] + object_velocity*Math.cos(object_angle[i]))
            ) {
-      object_angle[i] = object_angle[i]+sign*Math.PI/180;
+         object_angle[i] = object_angle[i]+sign*Math.PI/180;
+         iter--;
      }
    
      object_x[i] = object_x[i] + object_velocity*Math.sin(object_angle[i]);
