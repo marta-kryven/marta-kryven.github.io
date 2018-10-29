@@ -271,11 +271,7 @@ function keypressed(event) {
      setTimeout(nextFrame, frameTiming); 
   } else {
     alert("fuck");
-    for (var i = 0; i < num_objects; i++) {
-       var idx =  i+1;
-       var obj = "object" + idx;
-       document.getElementById(obj).src = "webfile/sad.png"; // TBD: fix me!
-     }
+    document.getElementById("object1").src = "webfile/sad.png"; 
   }
 }
  
