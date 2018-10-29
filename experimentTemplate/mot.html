@@ -200,11 +200,11 @@ function check_constraints(x, y) {
    return true;
 }
   
-function init_object_positions() {
+function init_object_positions(num_targets) {
     var offx = document.getElementById("task_container").offsetLeft;
     var offy = document.getElementById("task_container").offsetTop;
   
-    for (i = 0; i < object_x.length; i++) {
+    for (i = 0; i < num_targets; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).style.left = offx + object_x[i]+"px";
@@ -212,8 +212,8 @@ function init_object_positions() {
     }
 }
                                 
-function reset_object_positions() {
-    for (i = 0; i < object_x.length; i++) {
+function reset_object_positions(num_targets) {
+    for (i = 0; i < num_targets; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).style.left = "-500px";
@@ -233,15 +233,15 @@ function nextFrame() {
     document.getElementById("fixationcross").style.top = "-500px";
       
     // initialise object positions 
-    init_object_positions();
+    init_object_positions(object_x.length);
      
   } else if (frame_index < num_fixation_frames + num_blink_frames) {
    
     // draw blinking of the target objects
     if ( frame_index % 2 == 0 ) {
-       reset_object_positions();  
+       reset_object_positions(num_targets);  
     } else {
-       init_object_positions();
+       init_object_positions(num_targets);
     }
      
   } else if (frame_index < num_fixation_frames + num_blink_frames + num_moving_frames) {
