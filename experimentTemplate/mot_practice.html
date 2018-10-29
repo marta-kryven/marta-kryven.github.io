@@ -1,4 +1,5 @@
 <!-- showing MOT task on an image background -->
+<!-- practice page: TBD - make sure they only do this 3 times  -->
 
 <!DOCTYPE html>
 <html>
@@ -233,7 +234,7 @@ function targetclicked(event) {
       } 
  
       if (clicked_on_num_objects == num_targets) {
-        document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + " correctly.";
+        document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + " correctly.<br><br> Press SPACE to try again.";
       }
     }
 }
@@ -246,7 +247,7 @@ function distractorclicked(event) {
       } 
  
       if (clicked_on_num_objects == num_targets) {
-        document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + "correctly.";
+        document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + " correctly.<br><br> Press SPACE to try again.";
       }
    }
 }  
@@ -254,7 +255,12 @@ function distractorclicked(event) {
   
 function keypressed(event) {
  
+  /*
+    because this is practice we are not saving data, we will just let them see a few trials
+  */
+ 
   if (event.keyCode == 32 && clicked_on_num_objects == num_targets) {
+     
      
      for (var i = 0; i < num_objects; i++) {                            // clear object selection and all variables
        var idx =  i+1;
@@ -275,6 +281,7 @@ function keypressed(event) {
   } else {
     //document.getElementById("im1").src = "webfile/sad.png"; 
   }
+  
 }
  
  
