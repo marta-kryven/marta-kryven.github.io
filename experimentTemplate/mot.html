@@ -251,29 +251,32 @@ function distractorclicked(event) {
    }
 }  
   
- 
-// restarting the trial 
+  
 function keypressed(event) {
  
-  if (event.keyCode == 32) {
+  if (event.keyCode == 32 && clicked_on_num_objects == num_targets) {
      
-     for (var i = 0; i < num_objects; i++) {
+     for (var i = 0; i < num_objects; i++) {                            // clear object selection and all variables
        var idx =  i+1;
        var obj = "im" + idx;
        document.getElementById(obj).src = "webfile/object.png"; 
      }
    
+     waiting_for_response = 0;   
+     clicked_on_num_objects = 0; 
+     clicked_on_num_correct = 0;
      frame_index = 0; 
      object_x = [];
      object_y = [];
      object_angle = []; 
      init_positions();
      fixation_cross(); 
-     setTimeout(nextFrame, frameTiming); 
+     setTimeout(nextFrame, frameTiming);                                    // restarting the trial
   } else {
     //document.getElementById("im1").src = "webfile/sad.png"; 
   }
 }
+ 
  
 function validateForm() {
     document.forms["frm"]["UID"].value = u_id;
