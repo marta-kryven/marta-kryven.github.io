@@ -161,8 +161,7 @@ var clicked_on_num_objects = 0; // make sure that the subject can only select as
 var clicked_on_num_correct = 0; 
  
 // here are various background images we could show 
-var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_web.jpg", 
-                   "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
+var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_web.jpg", "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
  
 
 // ---------------------------------------------------------------------------------------------------
@@ -205,7 +204,7 @@ finction fixation_cross() {
  
 function load() {
  
-    init_object_positions();
+    /*init_object_positions();
  
     var h = document.getElementById("background_container").innerHTML;    // adding objects
  
@@ -221,7 +220,7 @@ function load() {
     }
      
     document.getElementById("background_container").innerHTML = h;
-      
+    */  
     fixation_cross(); 
       
     setTimeout(nextFrame, frameTiming); 
