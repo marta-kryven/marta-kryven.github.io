@@ -164,11 +164,14 @@ function load() {
 // initialise object positions 
   
 function init_object_positions() {
+    var offx = document.getElementById("task_container").offsetLeft;
+    var offy = document.getElementById("task_container").offsetTop;
+  
     for (i = 0; i < num_objects; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
-       document.getElementById(obj).style.left = object_x[i]+"px";
-       document.getElementById(obj).style.top = object_y[i]+"px";
+       document.getElementById(obj).style.left = offx + object_x[i]+"px";
+       document.getElementById(obj).style.top = offy + object_y[i]+"px";
     }
 }
                                 
