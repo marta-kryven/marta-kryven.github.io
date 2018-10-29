@@ -116,6 +116,7 @@ var num_fixation_frames = 5;     // for how many frames to show fixation cross
 var num_moving_frames = 50;      // how long should the tracking animation last
 var num_blink_frames = 10;       // how long the blinking animtion lasts
 var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects
+var repulsion_radius = 20;       // object orbit 
  
 var num_objects = 5;             // how many objects do we want to show
 var num_targets = 3;             // how many targets do we want to show
@@ -125,20 +126,16 @@ var object_y = [];
  
 function load() {
  
-     /*
-     var w = document.getElementById("task_container").style.width; // returns undefined
-     var h = document.getElementById("task_container").style.height; 
-     alert( " " + w + " " + h + " "); 
-     */ 
-   
-     // adding objects
+     /**
+      adding objects
+     **/  
      
      var h = document.getElementById("background_container").innerHTML;
       
      for (i = 0; i < num_objects; i++) {
       
-        object_x.push(Math.random()*(container_width-15);
-        object_y.push(Math.random()*(container_height-15); 
+        object_x.push(Math.random()*(container_width-repulsion_radius*2) + repulsion_radius;
+        object_y.push(Math.random()*(container_height-repulsion_radius*2) + repulsion_radius; 
          
         var idx = i+1; 
         var clickfun = "targetclicked";
@@ -160,8 +157,21 @@ function load() {
       
      setTimeout(nextFrame, frameTiming); 
 }
+
+function targetclicked(event) {
+}
  
-// initialise object positions 
+function distractorclicked(event) {
+}  
+  
+// ------------------------------------------------------------------------ 
+//  
+//      animate objects 
+//
+// ------------------------------------------------------------------------
+  
+function check_constraints() { 
+}
   
 function init_object_positions() {
     var offx = document.getElementById("task_container").offsetLeft;
@@ -225,12 +235,6 @@ function validateForm() {
     document.forms["frm"]["firsttrial"].value = "true";
     return true;  
 }
-
-function targetclicked(event) {
-}
- 
-function distractorclicked(event) {
-}  
    
 </script>
 </html>
