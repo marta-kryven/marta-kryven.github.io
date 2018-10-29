@@ -160,6 +160,26 @@ function load() {
       
      setTimeout(nextFrame, frameTiming); 
 }
+ 
+// initialise object positions 
+  
+function init_object_positions() {
+    for (i = 0; i < num_objects; i++) {
+       var idx =  i+1;
+       var obj = "object" + idx;
+       document.getElementById(obj).style.left = object_x[i]+"px";
+       document.getElementById(obj).style.top = object_y[i]+"px";
+    }
+}
+                                
+function reset_object_positions() {
+    for (i = 0; i < num_objects; i++) {
+       var idx =  i+1;
+       var obj = "object" + idx;
+       document.getElementById(obj).style.left = "-500px";
+       document.getElementById(obj).style.top = "-500px";
+    }
+}                                
   
 function nextFrame() {
 
@@ -173,17 +193,16 @@ function nextFrame() {
     document.getElementById("fixationcross").style.top = "-500px";
       
     // initialise object positions 
-    for (i = 0; i < num_objects; i++) {
-       var idx =  i+1;
-       var obj = "object" + idx;
-       document.getElementById(obj).style.left = object_x[i];
-       document.getElementById(obj).style.top = object_y[i];
-    }
+    init_object_positions();
      
   } else if (frame_index < num_fixation_frames + num_blink_frames) {
    
     // draw blinking of the target objects
-      
+    if ( frame_index % 2 == 0 ) {
+       reset_object_positions();  
+    } else {
+       init_object_positions();
+    }
      
   } else if (frame_index < num_fixation_frames + num_blink_frames + num_moving_frames) {
    
