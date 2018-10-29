@@ -195,6 +195,8 @@ function init_object_positions() {
  
 function fixation_cross() {
      // show fixation cross  
+     var MOT_width = document.getElementById("task_container").offsetWidth;
+     var MOT_height = document.getElementById("task_container").offsetHeight;
      var offx = document.getElementById("task_container").offsetLeft + MOT_width/2;
      var offy = document.getElementById("task_container").offsetTop + MOT_height/2;
      document.getElementById("fixationcross").style.left = offx +"px";
