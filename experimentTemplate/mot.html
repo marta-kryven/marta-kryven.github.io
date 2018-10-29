@@ -45,8 +45,8 @@
  position: relative;
  text-align: center; 
  font-size: 110%; 
- width: 400px; 
- height: 250px; 
+ width: 410px; 
+ height: 240px; 
  top: 80px;
  left: 510px;
  background: black;
@@ -252,20 +252,20 @@ function animate_objects() {
    
      // update position
    
-     var newx = object_x[i] + velocity*sin(object_angle[i]);
-     var newy = object_y[i] + velocity*cos(object_angle[i]);
+     var newx = object_x[i] + object_velocity*sin(object_angle[i]);
+     var newy = object_y[i] + object_velocity*cos(object_angle[i]);
    
      var sign = -1;
      if (Math.random() > 0.5) sign = 1;
    
      while (!check_constraints(newx,newy)) {
       object_angle[i] = object_angle[i]+sign*Math.PI/180;
-      newx = object_x[i] + velocity*sin(object_angle[i]);
-      newy = object_y[i] + velocity*cos(object_angle[i]);
+      newx = object_x[i] + object_velocity*sin(object_angle[i]);
+      newy = object_y[i] + object_velocity*cos(object_angle[i]);
      }
    
-     object_x[i] = object_x[i] + velocity*sin(object_angle[i]);
-     object_y[i] = object_y[i] + velocity*cos(object_angle[i]);
+     object_x[i] = object_x[i] + object_velocity*sin(object_angle[i]);
+     object_y[i] = object_y[i] + object_velocity*cos(object_angle[i]);
   }
  
   init_object_positions(object_x.length);
