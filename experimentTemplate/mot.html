@@ -90,7 +90,7 @@
     <br><b>LET'S PRACTICE</b><br><br>
    
     <div id="message">
-      Here is an example of what you will see.
+      Please look at the fixation cross.
     </div>
     <br><br>
    
@@ -122,7 +122,7 @@
 
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation
 var frame_index = 0;             // where are we in the animation?
-var num_fixation_frames = 5;     // for how many frames to show fixation cross 
+var num_fixation_frames = 10;     // for how many frames to show fixation cross 
 var num_moving_frames = 50;      // how long should the tracking animation last
 var num_blink_frames = 10;       // how long the blinking animtion lasts
 var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects
@@ -281,7 +281,8 @@ function nextFrame() {
       
     // initialise object positions 
     init_object_positions(object_x.length);
-     
+    document.getElementById("background_container").innerHTML = "The blinking objects are targets."
+   
   } else if (frame_index < num_fixation_frames + num_blink_frames) {
    
     // draw blinking of the target objects
@@ -298,6 +299,8 @@ function nextFrame() {
     // draw moving animation
     animate_objects();
     init_object_positions(object_x.length);
+   
+    document.getElementById("background_container").innerHTML = "Your task is to keep track of the targets."
    
   } else {
    waiting_for_response = 1;  // no more frames, waiting for response
