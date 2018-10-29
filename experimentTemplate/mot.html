@@ -178,7 +178,7 @@ function init_object_positions() {
     var offx = document.getElementById("task_container").offsetLeft;
     var offy = document.getElementById("task_container").offsetTop;
   
-    for (i = 0; i < num_objects; i++) {
+    for (i = 0; i < object_x.length; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).style.left = offx + object_x[i]+"px";
@@ -187,7 +187,7 @@ function init_object_positions() {
 }
                                 
 function reset_object_positions() {
-    for (i = 0; i < num_objects; i++) {
+    for (i = 0; i < object_x.length; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).style.left = "-500px";
