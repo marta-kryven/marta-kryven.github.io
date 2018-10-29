@@ -277,7 +277,7 @@ function animate_objects() {
      var sign = -1;
      if (Math.random() > 0.5) sign = 1;
      
-     var iter = 10;   
+     var iter = 20;   
      while (iter > 0 && !check_constraints(object_x[i] + object_velocity*Math.cos(object_angle[i]), 
                                            object_y[i] + object_velocity*Math.sin(object_angle[i]))
            ) {
@@ -285,10 +285,10 @@ function animate_objects() {
          iter--;
      }
      
-     //if (iter > 0) {
+     if (iter > 0) {
         object_x[i] = object_x[i] + object_velocity*Math.cos(object_angle[i]);
         object_y[i] = object_y[i] + object_velocity*Math.sin(object_angle[i]);
-     //}
+     }
   }
  
   init_object_positions(object_x.length);
