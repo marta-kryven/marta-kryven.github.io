@@ -238,7 +238,7 @@ function init_object_positions(num_targets) {
 }
                                 
 function reset_object_positions(num_targets) {
-    for (i = 0; i < num_targets; i++) {
+    for (var i = 0; i < num_targets; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).style.left = "-500px";
@@ -247,7 +247,8 @@ function reset_object_positions(num_targets) {
 }                                
   
 function animate_objects() {
-  for (i = 0; i < object_x.length; i++) {
+  
+  for (var i = 0; i < object_x.length; i++) {
    
      // update position
    
@@ -266,6 +267,8 @@ function animate_objects() {
      object_x[i] = object_x[i] + velocity*sin(object_angle[i]);
      object_y[i] = object_y[i] + velocity*cos(object_angle[i]);
   }
+ 
+  init_object_positions(object_x.length);
 }
  
 function nextFrame() {
@@ -298,7 +301,6 @@ function nextFrame() {
    
     // draw moving animation
     animate_objects();
-    init_object_positions(object_x.length);
    
     document.getElementById("message").innerHTML = "Your task is to keep track of the targets."
    
