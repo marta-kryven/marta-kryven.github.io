@@ -260,7 +260,7 @@ function keypressed(event) {
      for (var i = 0; i < num_objects; i++) {
        var idx =  i+1;
        var obj = "im" + idx;
-       document.getElementById(obj).src = "webfile/object.png"; // TBD: fix me!
+       document.getElementById(obj).src = "webfile/object.png"; 
      }
    
      frame_index = 0; 
@@ -271,8 +271,7 @@ function keypressed(event) {
      fixation_cross(); 
      setTimeout(nextFrame, frameTiming); 
   } else {
-    alert(  document.getElementById("im1").src  );
-    document.getElementById("im1").src = "webfile/sad.png"; 
+    //document.getElementById("im1").src = "webfile/sad.png"; 
   }
 }
  
