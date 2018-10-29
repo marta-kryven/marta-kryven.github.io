@@ -64,8 +64,8 @@
      <!-- the area in which the MOT is dislayed -->
    </div">
    
-   <div id='object1'><img src='webfile/object.png' width = '20px' onclick='object1clicked(event)'/></div>
-   <div id='fixationcross'><img src='webfile/fixation.png' width = '18px' /></div> 
+   <div id='fixationcross'><img src='webfile/fixation.png' width = '18px' /></div>  
+   <!-- <div id='object1'><img src='webfile/object.png' width = '20px' onclick='targetclicked(event)'/></div> -->
  </div>
  <br>
  <!-- <div id='mesage'></div> -->
@@ -106,14 +106,30 @@ function load() {
      */ 
    
      // adding objects
+     
+     var h = document.getElementById("background_container").innerHTML;
       
      for (i = 0; i < num_objects; i++) {
-        object_x.push(Math.random()*400+15);
-        object_y.push(Math.random()*210+15); 
-     }
       
+        object_x.push(Math.random()*380+15);
+        object_y.push(Math.random()*210+15); 
+         
+        var idx = i+1; 
+        var clickfun = "targetclicked";
+        
+        if (i > num_targets-1) {
+           clickfun = "distractorclicked";
+        }
+         
+        h = h + "<div id='object" + idx + "'><img src='webfile/object.png' width = '20px' onclick='" + clickfun + "(event)'/></div>"; 
+     }
+     
+     document.getElementById("background_container").innerHTML = h;
+      
+     // show fixation cross  
      document.getElementById("fixationcross").style.left = 215+"px";
      document.getElementById("fixationcross").style.top = 120+"px";
+      
      setTimeout(nextFrame, frameTiming); 
 }
   
@@ -154,8 +170,11 @@ function validateForm() {
     return true;  
 }
 
-function object1clicked(event) {
+function targetclicked(event) {
 }
+ 
+function distractorclicked(event) {
+}  
    
 </script>
 </html>
