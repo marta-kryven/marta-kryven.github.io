@@ -105,8 +105,15 @@ function load() {
      alert( " " + w + " " + h + " "); 
      */ 
    
-     document.getElementById("fixationcross").style.left = 240+"px";
-     document.getElementById("fixationcross").style.top = 140+"px";
+     // adding objects
+      
+     for (i = 0; i < num_objects; i++) {
+        object_x.push(Math.random()*400+15);
+        object_y.push(Math.random()*210+15); 
+     }
+      
+     document.getElementById("fixationcross").style.left = 215+"px";
+     document.getElementById("fixationcross").style.top = 120+"px";
      setTimeout(nextFrame, frameTiming); 
 }
   
