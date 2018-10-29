@@ -91,8 +91,10 @@ var num_moving_frames = 50;      // how long should the tracking animation last
 var num_blink_frames = 10;       // how long the blinking animtion lasts
 var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects
  
-var object_x = 0;
-var object_y = 0 
+var num_objects = 5;             // how many objects do we want to show
+var num_targets = 3;             // how many targets do we want to show
+var object_x = [];               // object coordinates
+var object_y = []; 
  
  
 function load() {
