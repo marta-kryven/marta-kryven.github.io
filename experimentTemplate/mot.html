@@ -215,7 +215,8 @@ function load() {
         if (i > num_targets-1) clickfun = "distractorclicked";
          
         h = h + "<div id='object" + idx + 
-                "'><img src='webfile/object.png' width = '" + object_size + "px' onclick='" + clickfun + 
+                "'><img id = im'" + idx + "' src='webfile/object.png' width = '" + 
+                object_size + "px' onclick='" + clickfun + 
                 "(event)'/></div>"; 
     }
      
@@ -258,7 +259,7 @@ function keypressed(event) {
      
      for (var i = 0; i < num_objects; i++) {
        var idx =  i+1;
-       var obj = "object" + idx;
+       var obj = "im" + idx;
        document.getElementById(obj).src = "webfile/object.png"; // TBD: fix me!
      }
    
@@ -270,7 +271,7 @@ function keypressed(event) {
      fixation_cross(); 
      setTimeout(nextFrame, frameTiming); 
   } else {
-    alert("fuck fuck");
+    alert(document.getElementById("im1").src);
     document.getElementById("object1").src = "webfile/sad.png"; 
   }
 }
