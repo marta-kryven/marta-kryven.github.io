@@ -204,7 +204,8 @@ finction fixation_cross() {
  
 function load() {
  
-    /*init_object_positions();
+    fixation_cross(); 
+    init_object_positions();
  
     var h = document.getElementById("background_container").innerHTML;    // adding objects
  
@@ -219,10 +220,7 @@ function load() {
                 "(event)'/></div>"; 
     }
      
-    document.getElementById("background_container").innerHTML = h;
-    */  
-    fixation_cross(); 
-      
+    document.getElementById("background_container").innerHTML = h;  
     setTimeout(nextFrame, frameTiming); 
 }
 
