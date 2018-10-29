@@ -174,9 +174,9 @@ var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_w
 function init_positions() {
      //var background_width = document.getElementById("background_container").offsetWidth;
      //var background_height = document.getElementById("background_container").offsetHeight;
- //    var MOT_width = document.getElementById("task_container").offsetWidth;
- //    var MOT_height = document.getElementById("task_container").offsetHeight;
-/*
+     var MOT_width = document.getElementById("task_container").offsetWidth;
+     var MOT_height = document.getElementById("task_container").offsetHeight;
+
      for (var i = 0; i < num_objects; i++) {
         
         var x = Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius;
@@ -191,7 +191,7 @@ function init_positions() {
         object_y.push( y ); 
         object_angle.push(Math.random()*Math.PI*2);
      }
- */
+ 
      alert(" init_object_positions " + object_x.length);
 }
  
