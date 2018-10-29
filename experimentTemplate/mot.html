@@ -82,7 +82,7 @@
 </style>
 </head>
  
-<body onload="load()">
+<body onload="load()" onkeydown="keypressed(event)">
 
 <div id = "page_container"> 
   <div id="background_container">
@@ -149,6 +149,11 @@ var clicked_on_num_correct = 0;
 //                 "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
  
 function load() {
+ 
+     frame_index = 0; 
+     object_x = [];
+     object_y = [];
+     object_angle = []; 
  
      var background_width = document.getElementById("background_container").offsetWidth;
      var background_height = document.getElementById("background_container").offsetHeight;
@@ -221,6 +226,14 @@ function distractorclicked(event) {
  }
 }  
   
+ 
+function keypressed(event){
+  if (event.keyCode == 32) {
+     // restarting the trial
+     load();
+  }
+}
+ 
 // ------------------------------------------------------------------------ 
 //  
 //      animate objects 
