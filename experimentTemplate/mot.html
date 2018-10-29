@@ -57,10 +57,14 @@
    
   <div id='object1'><img src='webfile/object.png' width = '20px' onclick='object1clicked(event)'/></div>
   <div id='fixationcross'><img src='webfile/fixation.png' width = '18px' /></div> 
-
+   
+  <div id='mesage'></div>
+   
 </div>
  
 <br>
+
+ 
 <form name="frm" action="experiment.php" method="post" onsubmit="return validateForm()">
    <input type="text" name="UID" hidden>
    <input type="text" name="firsttrial" hidden><input type="submit" value="Continue" hidden/>
@@ -89,8 +93,11 @@ var object_y = 0
 function load() {
      var w = document.getElementById("task_container").width/2;
      var h = document.getElementById("task_container").height/2; 
-     document.getElementById("fixationcross").style.left = w+"px";
-     document.getElementById("fixationcross").style.top = h+"px";
+     
+     document.getElementById("mesasge").innerHTML = "<br>" + w + "px " + h + "px"; 
+   
+     document.getElementById("fixationcross").style.left = 200+"px";
+     document.getElementById("fixationcross").style.top = 150+"px";
      setTimeout(nextFrame, frameTiming); 
 }
   
