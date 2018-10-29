@@ -256,10 +256,10 @@ function keypressed(event) {
  
   if (event.keyCode == 32) {
      
-     for (i = 0; i < num_objects; i++) {
+     for (var i = 0; i < num_objects; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
-       document.getElementById(obj).src = "webfile/object.png";
+       document.getElementById(obj).src = "webfile/sad.png"; // TBD: fix me!
      }
    
      frame_index = 0; 
