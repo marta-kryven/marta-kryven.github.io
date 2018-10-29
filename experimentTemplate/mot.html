@@ -77,24 +77,29 @@
 <body onload="load()">
 
 <div id = "page_container"> 
- <div id="background_container">
+  <div id="background_container">
   
-   <br><b>LET'S PRACTICE</b><br><br>
-   Here is an example of what you will see.<br><br>
+    <br><b>LET'S PRACTICE</b><br><br>
+    Here is an example of what you will see.<br><br>
  
-   <div id="task_container">
-     <!-- the area in which the MOT is dislayed -->
-   </div">
+    <div id="task_container">
+       <!-- the area in which the MOT is dislayed -->
+    </div">
    
-   <div id='fixationcross'><img src='webfile/fixation.png' width = '18px' /></div>  
-   <!-- <div id='object1'><img src='webfile/object.png' width = '20px' onclick='targetclicked(event)'/></div> -->
+    <div id='fixationcross'>
+      <img src='webfile/fixation.png' width = '18px' />
+    </div>  
+     
+    <!-- <div id='object1'><img src='webfile/object.png' width = '20px' onclick='targetclicked(event)'/></div> -->
  </div>
+  
  <br>
  <!-- <div id='mesage'></div> -->
  <form name="frm" action="experiment.php" method="post" onsubmit="return validateForm()">
    <input type="text" name="UID" hidden>
    <input type="text" name="firsttrial" hidden><input type="submit" value="Continue" hidden/>
  </form>
+  
 <div>
 </body>
 
@@ -124,16 +129,14 @@ var object_y = [];
  
 function load() {
  
-     /**
-      adding objects
-     **/  
+     // adding objects
      
      var h = document.getElementById("background_container").innerHTML;
       
      for (i = 0; i < num_objects; i++) {
       
-        object_x.push(Math.random()*(container_width -repulsion_radius*2) + repulsion_radius);
-        object_y.push(Math.random()*(container_height-repulsion_radius*2) + repulsion_radius); 
+        object_x.push(  Math.random()*(container_width -repulsion_radius*2) + repulsion_radius );
+        object_y.push(  Math.random()*(container_height-repulsion_radius*2) + repulsion_radius ); 
          
         var idx = i+1; 
         var clickfun = "targetclicked";
