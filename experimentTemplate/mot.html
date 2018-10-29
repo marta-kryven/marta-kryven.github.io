@@ -132,7 +132,6 @@ var frame_index = 0;             // where are we in the animation?
 var num_fixation_frames = 5;     // for how many frames to show fixation cross 
 var num_moving_frames = 75;      // how long should the tracking animation last
 var num_blink_frames = 10;       // how long the blinking animtion lasts
-var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects
 var repulsion_radius = 30;       // object orbit 
  
 var object_x = [];               // object coordinates
@@ -157,6 +156,7 @@ var frameTiming = 100;           // time im milliseconds between frames - set th
 //
 // --------------------------------------------------------------------------------------------------- 
 
+var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects 
 var clicked_on_num_objects = 0; // make sure that the subject can only select as many objects as there were targets 
 var clicked_on_num_correct = 0; 
  
@@ -223,25 +223,29 @@ function load() {
 }
 
 function targetclicked(event) {
-    if (clicked_on_num_objects < num_targets) {
-      event.target.src = "webfile/happy.png";
-      clicked_on_num_objects++;
-      clicked_on_num_correct++;
-    } 
+    if (waiting_for_response == 1) {
+      if (clicked_on_num_objects < num_targets) {
+        event.target.src = "webfile/happy.png";
+        clicked_on_num_objects++;
+        clicked_on_num_correct++;
+      } 
  
-    if (clicked_on_num_objects == num_targets) {
-      document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + " correctly.";
+      if (clicked_on_num_objects == num_targets) {
+        document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + " correctly.";
+      }
     }
 }
  
 function distractorclicked(event) {
-   if (clicked_on_num_objects < num_targets) {
-      event.target.src = "webfile/sad.png";
-      clicked_on_num_objects++;
-   } 
+   if (waiting_for_response == 1) {
+      if (clicked_on_num_objects < num_targets) {
+        event.target.src = "webfile/sad.png";
+        clicked_on_num_objects++;
+      } 
  
-   if (clicked_on_num_objects == num_targets) {
-      document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + "correctly.";
+      if (clicked_on_num_objects == num_targets) {
+        document.getElementById("message").innerHTML = "Thank you! You have identified " + clicked_on_num_correct + "correctly.";
+      }
    }
 }  
   
