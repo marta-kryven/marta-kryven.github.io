@@ -155,8 +155,10 @@ function load() {
      document.getElementById("background_container").innerHTML = h;
       
      // show fixation cross  
-     document.getElementById("fixationcross").style.left = MOT_width/2 +"px";
-     document.getElementById("fixationcross").style.top  = MOT_height/2 +"px";
+     var offx = document.getElementById("task_container").offsetLeft + MOT_width/2;
+     var offy = document.getElementById("task_container").offsetTop + MOT_height/2;
+     document.getElementById("fixationcross").style.left = offx +"px";
+     document.getElementById("fixationcross").style.top  = offy +"px";
       
      setTimeout(nextFrame, frameTiming); 
 }
