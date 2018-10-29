@@ -81,13 +81,14 @@ var num_fixation_frames = 5;     // for how many frames to show fixation cross
 var num_moving_frames = 50;      // how long should the tracking animation last
 var num_blink_frames = 10;       // how long the blinking animtion lasts
 var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects
-  
-
+ 
+var object_x = 0;
+var object_y = 0 
  
  
 function load() {
-     var w = document.getElementById("fixationcross").style.width/2;
-     var h = document.getElementById("fixationcross").style.height/2; 
+     var w = document.getElementById("task_container").style.width/2;
+     var h = document.getElementById("task_container").style.height/2; 
      document.getElementById("fixationcross").style.left = w+"px";
      document.getElementById("fixationcross").style.top = h+"px";
      setTimeout(nextFrame, frameTiming); 
