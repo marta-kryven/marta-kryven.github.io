@@ -172,9 +172,8 @@ var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_w
 
 
 function init_object_positions() {
-     var background_width = document.getElementById("background_container").offsetWidth;
-     var background_height = document.getElementById("background_container").offsetHeight;
-     
+     //var background_width = document.getElementById("background_container").offsetWidth;
+     //var background_height = document.getElementById("background_container").offsetHeight;
      var MOT_width = document.getElementById("task_container").offsetWidth;
      var MOT_height = document.getElementById("task_container").offsetHeight;
 
@@ -252,23 +251,24 @@ function distractorclicked(event) {
 }  
   
  
+// restarting the trial 
 function keypressed(event) {
  
   if (event.keyCode == 32) {
-     // restarting the trial
+     
      for (i = 0; i < num_objects; i++) {
        var idx =  i+1;
        var obj = "object" + idx;
        document.getElementById(obj).src = "webfile/object.png";
-    }
+     }
    
-    frame_index = 0; 
-    object_x = [];
-    object_y = [];
-    object_angle = []; 
-    init_object_positions();
-    fixation_cross(); 
-    setTimeout(nextFrame, frameTiming); 
+     frame_index = 0; 
+     object_x = [];
+     object_y = [];
+     object_angle = []; 
+     init_object_positions();
+     fixation_cross(); 
+     setTimeout(nextFrame, frameTiming); 
   }
 }
  
