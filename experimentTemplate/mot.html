@@ -264,8 +264,8 @@ function animate_objects() {
       newy = object_y[i] + object_velocity*cos(object_angle[i]);
      }
    
-     object_x[i] = object_x[i] + object_velocity*sin(object_angle[i]);
-     object_y[i] = object_y[i] + object_velocity*cos(object_angle[i]);
+     object_x[i] = newx;
+     object_y[i] = newy;
   }
  
   init_object_positions(object_x.length);
