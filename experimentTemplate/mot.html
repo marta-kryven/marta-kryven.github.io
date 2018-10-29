@@ -123,7 +123,9 @@ function load() {
            clickfun = "distractorclicked";
         }
          
-        h = h + "<div id='object" + idx + "'><img src='webfile/object.png' width = '20px' onclick='" + clickfun + "(event)'/></div>"; 
+        h = h + "<div id='object" + idx + 
+                "'><img src='webfile/object.png' width = '20px' onclick='" + clickfun + 
+                "(event)'/></div>"; 
      }
      
      document.getElementById("background_container").innerHTML = h;
