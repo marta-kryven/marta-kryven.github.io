@@ -7,14 +7,14 @@
  
 #object1 {
   position: absolute;
-  top: -300px;
-  left: -200px;
+  top: -400px;
+  left: -400px;
 }
  
 #fixationcross {
   position: absolute;
-  top: -300px;
-  left: -200px;
+  top: -400px;
+  left: -400px;
 }
  
 #task_container { 
@@ -109,16 +109,24 @@ function nextFrame() {
 
   if (frame_index < num_fixation_frames) {
      // fixation cross
+      
+  } else if (frame_index == num_fixation_frames) {
+    
+    // remove fixation cross   
+    document.getElementById("fixationcross").style.left = "-400px";
+    document.getElementById("fixationcross").style.top = "-400px";
+      
+    // initialise object positions 
+     
   } else if (frame_index < num_fixation_frames + num_blink_frames) {
    
-     // remove fixation cross
+    // draw blinking of the target objects
       
-     document.getElementById("fixationcross").style.left = "-300px";
-     document.getElementById("fixationcross").style.top = "-200px";
-      
-     // draw blinking
+     
   } else if (frame_index < num_fixation_frames + num_blink_frames + num_moving_frames) {
-     // draw moving animation
+   
+    // draw moving animation
+      
   } else {
    waiting_for_response = 1;  // no more frames, waiting for response
    return;
