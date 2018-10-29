@@ -122,7 +122,7 @@
 
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation
 var frame_index = 0;             // where are we in the animation?
-var num_fixation_frames = 10;     // for how many frames to show fixation cross 
+var num_fixation_frames = 5;     // for how many frames to show fixation cross 
 var num_moving_frames = 50;      // how long should the tracking animation last
 var num_blink_frames = 10;       // how long the blinking animtion lasts
 var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects
@@ -252,16 +252,16 @@ function animate_objects() {
    
      // update position
    
-     var newx = object_x[i] + object_velocity*sin(object_angle[i]);
-     var newy = object_y[i] + object_velocity*cos(object_angle[i]);
+     var newy = object_angle[i];//object_x[i] + object_velocity*sin(object_angle[i]);
+     var newx = object_angle[i];//object_y[i] + object_velocity*cos(object_angle[i]);
    
     /* var sign = -1;
      if (Math.random() > 0.5) sign = 1;
    
      while (!check_constraints(newx,newy)) {
       object_angle[i] = object_angle[i]+sign*Math.PI/180;
-      newx = object_x[i] + object_velocity*sin(object_angle[i]);
-      newy = object_y[i] + object_velocity*cos(object_angle[i]);
+      newy = object_x[i] + object_velocity*sin(object_angle[i]);
+      newx = object_y[i] + object_velocity*cos(object_angle[i]);
      }
    */
      object_x[i] = newx;
