@@ -171,11 +171,11 @@ var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_w
 // --------------------------------------------------------------------------------------------------- 
 
 
-function init_object_positions() {
+function init_positions() {
      //var background_width = document.getElementById("background_container").offsetWidth;
      //var background_height = document.getElementById("background_container").offsetHeight;
-     var MOT_width = document.getElementById("task_container").offsetWidth;
-     var MOT_height = document.getElementById("task_container").offsetHeight;
+ //    var MOT_width = document.getElementById("task_container").offsetWidth;
+ //    var MOT_height = document.getElementById("task_container").offsetHeight;
 /*
      for (var i = 0; i < num_objects; i++) {
         
@@ -208,7 +208,7 @@ function fixation_cross() {
 function load() {
   
     fixation_cross(); 
-    init_object_positions();
+    init_positions();
  
     alert("xload " + object_x.length);
  
@@ -272,7 +272,7 @@ function keypressed(event) {
      object_x = [];
      object_y = [];
      object_angle = []; 
-     init_object_positions();
+     init_positions();
      fixation_cross(); 
      setTimeout(nextFrame, frameTiming); 
   }
