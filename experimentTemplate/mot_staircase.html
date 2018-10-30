@@ -82,7 +82,9 @@ html, body {
     </div>
    
     <div id="fixationcross"><img src="webfile/fixation.png" width = "18px" /></div> 
-    <!-- <div id='object1'><img src='webfile/object.png' width = '20px' onclick='targetclicked(event)'/></div> -->
+   
+    <!-- MOT Objects are added dynamically, so there will be some entries of this kind -->
+    <!-- <div id='object1'><img id='im1' src='webfile/object.png' width = '20px' onclick='targetclicked(event)'/></div> -->
  </div>
   
  <br>
@@ -122,9 +124,9 @@ var object_size = 25;
 //
 // --------------------------------------------------------------------------------------------------- 
  
-var num_objects = 5;             // how many objects do we want to show
-var num_targets = 3;             // how many targets do we want to show 
-var object_velocity = 4.5;       // how far do the objects move
+var num_objects = 8;             // how many objects ?
+var num_targets = 3;             // how many of them are targets ?
+var object_velocity = 4.5;       // how far do the objects move per frame
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation 
  
 // ---------------------------------------------------------------------------------------------------
@@ -138,7 +140,8 @@ var clicked_on_num_objects = 0; // make sure that the subject can only select as
 var clicked_on_num_correct = 0; 
  
 // here are various background images we could show 
-var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_web.jpg", "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
+var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_web.jpg",
+                   "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
  
 
 // ---------------------------------------------------------------------------------------------------
@@ -244,17 +247,31 @@ function keypressed(event) {
      }
    
      waiting_for_response = 0;   
-     clicked_on_num_objects = 0; 
-     clicked_on_num_correct = 0;
      frame_index = 0; 
      object_x = [];
      object_y = [];
      object_angle = []; 
      init_positions();
      fixation_cross(); 
+   
+     /*
+     TBD: At this point we are ready to start the next trial. 
+     Staircase the difficulty of the next trial based on how the subject responded 
+     */
+   
+     if (clicked_on_num_correct == clicked_on_num_objects) {
+       // the last response was correct, do we want to increase difficulty?
+       // TBD
+     } else {
+      // the last response was incorrect, decrease difficulty
+      // TBD
+     }
+   
+     clicked_on_num_objects = 0; 
+     clicked_on_num_correct = 0;
      setTimeout(nextFrame, frameTiming);                                    // restarting the trial
   } else {
-    //document.getElementById("im1").src = "webfile/sad.png"; 
+    //document.getElementById("im1").src = "webfile/sad.png"; // debugging
   }
 }
  
