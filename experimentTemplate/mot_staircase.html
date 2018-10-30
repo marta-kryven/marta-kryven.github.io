@@ -260,7 +260,7 @@ function keypressed(event) {
      Staircase the difficulty of the next trial based on how the subject responded 
      */
      
-     if (num_reversals < 4)
+     if (num_reversals < 4) {
        if (clicked_on_num_correct == clicked_on_num_objects) {
           // the last response was correct, do we want to increase difficulty?
           object_velocity = object_velocity + 3*velocity_step;
@@ -274,9 +274,9 @@ function keypressed(event) {
        clicked_on_num_correct = 0;
        setTimeout(nextFrame, frameTiming);   // restarting the trial
    
-     } else {
+    } else {
        alert("Thanks! Velocity is: " + object_velocity );
-     }
+    }
    
                                       
   } else {
