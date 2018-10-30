@@ -1,4 +1,5 @@
 <!-- showing MOT task on an image background -->
+<!-- This page does staircase calibration to select the target velocity, this is not the actual experiment yet.-->
 
 <!DOCTYPE html>
 <html>
@@ -127,6 +128,7 @@ var object_size = 25;
 var num_objects = 8;             // how many objects ?
 var num_targets = 3;             // how many of them are targets ?
 var object_velocity = 4.5;       // how far do the objects move per frame
+var velocity_step = 0.2;         // step used to calibrate object velocity 
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation 
  
 // ---------------------------------------------------------------------------------------------------
@@ -261,10 +263,10 @@ function keypressed(event) {
    
      if (clicked_on_num_correct == clicked_on_num_objects) {
        // the last response was correct, do we want to increase difficulty?
-       // TBD
+       // TBD 
      } else {
       // the last response was incorrect, decrease difficulty
-      // TBD
+      object_velocity = object_velocity - velocity_step;
      }
    
      clicked_on_num_objects = 0; 
