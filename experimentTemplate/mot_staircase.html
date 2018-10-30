@@ -126,10 +126,10 @@ var object_size = 25;
  
 var num_objects = 8;             // how many objects ?
 var num_targets = 3;             // how many of them are targets ?
-var object_velocity = 4.5;       // how far do the objects move per frame
+var object_velocity = 2.5;       // how far do the objects move per frame
 var velocity_step = 0.2;         // step used to calibrate object velocity 
 var frameTiming = 100;           // time im milliseconds between frames - set this variable to control the speed of animation 
- 
+var num_reversals = 0;           // the number of reversals that we need for staircasing 
 // ---------------------------------------------------------------------------------------------------
 //
 //      interface control 
@@ -259,18 +259,26 @@ function keypressed(event) {
      TBD: At this point we are ready to start the next trial. 
      Staircase the difficulty of the next trial based on how the subject responded 
      */
+     
+     if (num_reversals < 4)
+       if (clicked_on_num_correct == clicked_on_num_objects) {
+          // the last response was correct, do we want to increase difficulty?
+          object_velocity = object_velocity + 3*velocity_step;
+       } else {
+          // the last response was incorrect, decrease difficulty
+          object_velocity = object_velocity - velocity_step;
+          num_reversals++;
+       }
    
-     if (clicked_on_num_correct == clicked_on_num_objects) {
-       // the last response was correct, do we want to increase difficulty?
-       // TBD 
+       clicked_on_num_objects = 0; 
+       clicked_on_num_correct = 0;
+       setTimeout(nextFrame, frameTiming);   // restarting the trial
+   
      } else {
-      // the last response was incorrect, decrease difficulty
-      object_velocity = object_velocity - velocity_step;
+       alert("Thanks! Velocity is: " + object_velocity );
      }
    
-     clicked_on_num_objects = 0; 
-     clicked_on_num_correct = 0;
-     setTimeout(nextFrame, frameTiming);                                    // restarting the trial
+                                      
   } else {
     //document.getElementById("im1").src = "webfile/sad.png"; // debugging
   }
