@@ -32,8 +32,8 @@ html, body {
  width: 410px; 
  height: 240px; 
  top: 80px;
- left: 520px;  
- background: black;
+ left: 520px;                    /* left will be 510 for the unstable laptop */ 
+ background: black;              /* btw, this is how you write comments in CSS */
 }
  
 #page_container { 
@@ -52,7 +52,7 @@ html, body {
 #background_container { 
  background: black;
  position: relative;
- background-image: url("webfile/stable_laptop_web.jpg"); 
+ background-image: url("webfile/stable_laptop_web.jpg");  /* "webfile/background_practice.jpg" for a non-laptop background */
  background-repeat: no-repeat;
  background-position: center;
  text-align:center; 
@@ -65,9 +65,6 @@ html, body {
  
 </style>
 </head>
- 
-<!-- left will be 510 for the unstable laptop --> 
-<!-- background-image: url("webfile/background_practice.jpg"); to set a non-laptop background -->
  
 <body onload="load()" onkeydown="keypressed(event)">
 
