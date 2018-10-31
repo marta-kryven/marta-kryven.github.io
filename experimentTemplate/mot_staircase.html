@@ -231,7 +231,7 @@ function load() {
 function targetclicked(event) {
     if (waiting_for_response == 1) {
       if (clicked_on_num_objects < num_targets) {
-        event.target.src = "webfile/happy.png";
+        event.target.src = "webfile/happy1.png";
         clicked_on_num_objects++;
         clicked_on_num_correct++;
       } 
@@ -247,7 +247,7 @@ function targetclicked(event) {
 function distractorclicked(event) {
    if (waiting_for_response == 1) {
       if (clicked_on_num_objects < num_targets) {
-        event.target.src = "webfile/sad.png";
+        event.target.src = "webfile/sad1.png";
         clicked_on_num_objects++;
       } 
  
@@ -312,7 +312,7 @@ function keypressed(event) {
    
                                       
   } else {
-    //document.getElementById("im1").src = "webfile/sad.png"; // debugging
+    //document.getElementById("im1").src = "webfile/sad1.png"; // debugging
   }
 }
  
