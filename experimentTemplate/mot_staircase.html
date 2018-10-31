@@ -69,6 +69,21 @@ background-size: 1450px;
     margin: 0 auto;
 }
  
+ @media screen and (max-width: 799px) {
+body {
+    background: white;
+  }
+#background_container { 
+display: none;
+    }
+#page_container::before { 
+ content: "This experiment is not optimized for mobile devices. Please use a laptop or desktop computer.";
+  color: black;
+    text-align: center;
+    vertical-align: middle;
+}      
+}
+ 
 </style>
 </head>
  
