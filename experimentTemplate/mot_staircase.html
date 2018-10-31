@@ -11,28 +11,29 @@
 html, body {
  margin: 0; 
  height: 100%; 
- overflow: hidden
+ overflow: hidden;
+ background: black;  
 }
  
-#object1 { position: absolute; top: -500px; left: -500px; }
-#object2 { position: absolute; top: -500px; left: -500px; }
-#object3 { position: absolute; top: -500px; left: -500px; }
-#object4 { position: absolute; top: -500px; left: -500px; }
-#object5 { position: absolute; top: -500px; left: -500px; }
-#object6 { position: absolute; top: -500px; left: -500px; }
-#object7 { position: absolute; top: -500px; left: -500px; }
-#object8 { position: absolute; top: -500px; left: -500px; }
+#object1 { position: absolute; top: -400px; left: -500px; }
+#object2 { position: absolute; top: -400px; left: -500px; }
+#object3 { position: absolute; top: -400px; left: -500px; }
+#object4 { position: absolute; top: -400px; left: -500px; }
+#object5 { position: absolute; top: -400px; left: -500px; }
+#object6 { position: absolute; top: -400px; left: -500px; }
+#object7 { position: absolute; top: -400px; left: -500px; }
+#object8 { position: absolute; top: -400px; left: -500px; }
  
-#fixationcross { position: absolute; top: -500px; left: -500px; }
+#fixationcross { position: absolute; top: -400px; left: -500px; }
  
 #task_container { 
- position: relative;
+ position: absolute;
  text-align: center; 
  font-size: 110%; 
  width: 410px; 
  height: 240px; 
- top: 80px;
- left: 520px;                    /* left will be 510 for the unstable laptop */ 
+ top: 180px;
+ left: 505px;                    /* left will be 510 for the unstable laptop */ 
  background: black;              /* btw, this is how you write comments in CSS */
 }
  
@@ -47,20 +48,25 @@ html, body {
  font-size: 120%; 
  text-align: center; 
  color: #00aaff;
+    background: rgba(0, 0, 0, .5);
+    height: 30px;
+padding-top: 5px;
 }
  
 #background_container { 
  background: black;
  position: relative;
- background-image: url("webfile/stable_laptop_web.jpg");  /* "webfile/background_practice.jpg" for a non-laptop background */
+ background-image: url("webfile/stable-laptop-1-hd.jpg");  /* "webfile/background_practice.jpg" for a non-laptop background */
  background-repeat: no-repeat;
  background-position: center;
  text-align:center; 
  align:center; 
  font-size: 120%; 
  color: #00aaff; 
- width: 100%; 
- height: 761px;
+ width: 1450px; 
+height: 785px;
+background-size: 1450px;
+    margin: 0 auto;
 }
  
 </style>
