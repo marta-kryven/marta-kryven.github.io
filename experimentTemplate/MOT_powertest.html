@@ -1,5 +1,5 @@
 <!-- showing MOT task on an image background -->
-<!-- This page allows you to input-->
+<!-- This page does staircase calibration to select the target velocity, this is not the actual experiment yet.-->
 
 <!DOCTYPE html>
 <html>
@@ -8,32 +8,32 @@
 <title>Instructions</title>
 <style>
  
- 
 html, body {
  margin: 0; 
  height: 100%; 
- overflow: hidden
+ overflow: hidden;
+ background: black;  
 }
  
-#object1 { position: absolute; top: -500px; left: -500px; }
-#object2 { position: absolute; top: -500px; left: -500px; }
-#object3 { position: absolute; top: -500px; left: -500px; }
-#object4 { position: absolute; top: -500px; left: -500px; }
-#object5 { position: absolute; top: -500px; left: -500px; }
-#object6 { position: absolute; top: -500px; left: -500px; }
-#object7 { position: absolute; top: -500px; left: -500px; }
-#object8 { position: absolute; top: -500px; left: -500px; }
+#object1 { position: absolute; top: -400px; left: -500px; }
+#object2 { position: absolute; top: -400px; left: -500px; }
+#object3 { position: absolute; top: -400px; left: -500px; }
+#object4 { position: absolute; top: -400px; left: -500px; }
+#object5 { position: absolute; top: -400px; left: -500px; }
+#object6 { position: absolute; top: -400px; left: -500px; }
+#object7 { position: absolute; top: -400px; left: -500px; }
+#object8 { position: absolute; top: -400px; left: -500px; }
  
-#fixationcross { position: absolute; top: -500px; left: -500px; }
+#fixationcross { position: absolute; top: -400px; left: -500px; }
  
 #task_container { 
- position: relative;
+ position: absolute;
  text-align: center; 
  font-size: 110%; 
  width: 410px; 
  height: 240px; 
- top: 80px;
- left: 520px;                    /* left will be 510 for the unstable laptop */ 
+ top: 180px;
+ left: 505px;                    /* left will be 510 for the unstable laptop */ 
  background: black;              /* btw, this is how you write comments in CSS */
 }
  
@@ -48,20 +48,40 @@ html, body {
  font-size: 120%; 
  text-align: center; 
  color: #00aaff;
+    background: rgba(0, 0, 0, .5);
+    height: 30px;
+padding-top: 5px;
 }
  
 #background_container { 
  background: black;
  position: relative;
- background-image: url("webfile/stable_laptop_web.jpg");  /* "webfile/background_practice.jpg" for a non-laptop background */
+ background-image: url("webfile/stable-laptop-1-hd.jpg");  /* "webfile/background_practice.jpg" for a non-laptop background */
  background-repeat: no-repeat;
  background-position: center;
  text-align:center; 
  align:center; 
  font-size: 120%; 
  color: #00aaff; 
- width: 100%; 
- height: 761px;
+ width: 1450px; 
+height: 785px;
+background-size: 1450px;
+    margin: 0 auto;
+}
+ 
+ @media screen and (max-width: 899px) {
+body {
+    background: white;
+  }
+#background_container { 
+display: none;
+    }
+#page_container::before { 
+ content: "This experiment is not optimized for mobile devices. Please use a laptop or desktop computer.";
+  color: black;
+    text-align: center;
+    vertical-align: middle;
+}      
 }
  
 </style>
@@ -101,11 +121,13 @@ html, body {
 </body>
 
 <script>
+
 // ---------------------------------------------------------------------------------------------------
 //
 //       variables for animation control 
 //
 // --------------------------------------------------------------------------------------------------- 
+
 var frame_index = 0;             // where are we in the animation?
 var num_fixation_frames = 5;     // for how many frames to show fixation cross 
 var num_moving_frames = 75;      // how long should the tracking animation last
@@ -125,33 +147,38 @@ var object_size = 25;
  
 var num_objects = 8;             // how many objects ?
 var num_targets = 3;             // how many of them are targets ?
-var object_velocity = 11.1;       // how far do the objects move per frame
+var object_velocity = 2.5;       // how far do the objects move per frame
 var velocity_step = 0.2;         // step used to calibrate object velocity 
 var frameTiming = 50;            // time im milliseconds between frames - set this variable to control the speed of animation 
-
+var num_reversals = 0;           // the number of reversals that we need for staircasing 
+var staircse_increasing = 1;     // we are currently in the increasing mode
  
 // ---------------------------------------------------------------------------------------------------
 //
 //      interface control 
 //
 // --------------------------------------------------------------------------------------------------- 
+
 var waiting_for_response = 0;    // 1 if the trial finished and the subject has to click on the objects 
 var clicked_on_num_objects = 0; // make sure that the subject can only select as many objects as there were targets 
 var clicked_on_num_correct = 0; 
  
 // here are various background images we could show 
-var backgrounds = [];
+var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_web.jpg",
+                   "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
  
-var num_trials_to_run = 100;
- 
+
 // ---------------------------------------------------------------------------------------------------
 //
 //       control functions
 //
 // --------------------------------------------------------------------------------------------------- 
+
+
 function init_positions() {
      var MOT_width = document.getElementById("task_container").offsetWidth;
      var MOT_height = document.getElementById("task_container").offsetHeight;
+
      for (var i = 0; i < num_objects; i++) {
         
         var x = Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius;
@@ -200,10 +227,11 @@ function load() {
     document.getElementById("background_container").innerHTML = h;  
     setTimeout(nextFrame, frameTiming); 
 }
+
 function targetclicked(event) {
     if (waiting_for_response == 1) {
       if (clicked_on_num_objects < num_targets) {
-        event.target.src = "webfile/happy.png";
+        event.target.src = "webfile/happy1.png";
         clicked_on_num_objects++;
         clicked_on_num_correct++;
       } 
@@ -219,7 +247,7 @@ function targetclicked(event) {
 function distractorclicked(event) {
    if (waiting_for_response == 1) {
       if (clicked_on_num_objects < num_targets) {
-        event.target.src = "webfile/sad.png";
+        event.target.src = "webfile/sad1.png";
         clicked_on_num_objects++;
       } 
  
@@ -250,16 +278,12 @@ function keypressed(event) {
      init_positions();
      fixation_cross(); 
    
-     clicked_on_num_objects = 0; 
-     clicked_on_num_correct = 0;
-     setTimeout(nextFrame, frameTiming);   // restarting the trial
-   
      /*
      TBD: At this point we are ready to start the next trial. 
      Staircase the difficulty of the next trial based on how the subject responded 
      */
      
-    /* if (num_reversals < 4) {
+     if (num_reversals < 4) {
        if (clicked_on_num_correct == clicked_on_num_objects) {
           
           // the last response was correct, do we want to increase difficulty?
@@ -284,11 +308,11 @@ function keypressed(event) {
    
     } else {
        alert("Thanks! Your velocity is: " + object_velocity );
-    }*/
+    }
    
                                       
   } else {
-    //document.getElementById("im1").src = "webfile/sad.png"; // debugging
+    //document.getElementById("im1").src = "webfile/sad1.png"; // debugging
   }
 }
  
@@ -385,6 +409,7 @@ function animate_objects() {
 }
  
 function nextFrame() {
+
   if (frame_index < num_fixation_frames) {
      // fixation cross
       
