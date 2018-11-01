@@ -140,8 +140,9 @@ var clicked_on_num_objects = 0; // make sure that the subject can only select as
 var clicked_on_num_correct = 0; 
  
 // here are various background images we could show 
-var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_web.jpg",
-                   "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
+var backgrounds = [];
+ 
+var num_trials_to_run = 100;
  
 // ---------------------------------------------------------------------------------------------------
 //
@@ -249,12 +250,16 @@ function keypressed(event) {
      init_positions();
      fixation_cross(); 
    
+     clicked_on_num_objects = 0; 
+     clicked_on_num_correct = 0;
+     setTimeout(nextFrame, frameTiming);   // restarting the trial
+   
      /*
      TBD: At this point we are ready to start the next trial. 
      Staircase the difficulty of the next trial based on how the subject responded 
      */
      
-     if (num_reversals < 4) {
+    /* if (num_reversals < 4) {
        if (clicked_on_num_correct == clicked_on_num_objects) {
           
           // the last response was correct, do we want to increase difficulty?
@@ -279,7 +284,7 @@ function keypressed(event) {
    
     } else {
        alert("Thanks! Your velocity is: " + object_velocity );
-    }
+    }*/
    
                                       
   } else {
