@@ -164,10 +164,18 @@ var clicked_on_num_objects = 0; // make sure that the subject can only select as
 var clicked_on_num_correct = 0; 
  
 // here are various background images we could show 
-var backgrounds = ["webfile/precarious_laptop_web.jpg", "webfile/stable_laptop_web.jpg",
-                   "webfile/background_practice.jpg", "webfile/background_practice_2.jpg"];
+var backgrounds = ["webfile/stable-laptop-1-hd.jpg", "webfile/stable-laptop-2-hd.jpg", "webfile/stable-laptop-3-hd.jpg",
+                   "webfile/unstable-laptop-1-hd.jpg", "webfile/unstable-laptop-2-hd.jpg", "webfile/unstable-laptop-3-hd.jpg" ];
  
 
+var num_trials_to_show = 120;
+var trial_backgrounds = []; 
+var trial_type = [];   // stable = 0, unstable = 1 TBD - initialise
+var trial_counter = 0; 
+
+var correct_responses_stable = 0; // TBD: increment us
+var correct_responses_unstable = 0; 
+ 
 // ---------------------------------------------------------------------------------------------------
 //
 //       control functions
@@ -205,8 +213,19 @@ function fixation_cross() {
      document.getElementById("fixationcross").style.top  = offy +"px";
 }
  
+/* this is the load window event */ 
 function load() {
-  
+ 
+    // generating backgrounds for each trial
+    var bkg_idx = 0;
+    for (i = 0; i < num_trials_to_show; i++) { 
+     
+        if (bkg_idx > backgrounds.length - 1 ) bkg_idx = 0;
+        trial_backgrounds.push(backgrounds[bkg_idx]);
+    }
+     
+    // TODO: shuffle backgrounds
+ 
     fixation_cross(); 
     init_positions();
  
@@ -263,56 +282,33 @@ function distractorclicked(event) {
 function keypressed(event) {
  
   if (event.keyCode == 32 && clicked_on_num_objects == num_targets) {
-     
-     for (var i = 0; i < num_objects; i++) {                            // clear object selection and all variables
-       var idx =  i+1;
-       var obj = "im" + idx;
-       document.getElementById(obj).src = "webfile/object.png"; 
-     }
-   
-     waiting_for_response = 0;   
-     frame_index = 0; 
-     object_x = [];
-     object_y = [];
-     object_angle = []; 
-     init_positions();
-     fixation_cross(); 
-   
-     /*
-     TBD: At this point we are ready to start the next trial. 
-     Staircase the difficulty of the next trial based on how the subject responded 
-     */
-     
-     if (num_reversals < 4) {
-       if (clicked_on_num_correct == clicked_on_num_objects) {
-          
-          // the last response was correct, do we want to increase difficulty?
-          object_velocity = object_velocity + 3*velocity_step;
-        
-          if (staircse_increasing == 0) {
-            // if we got here this means we have reversed
-            num_reversals++;
-          }
-        
-          staircse_increasing = 1;
-        
-       } else {
-          // the last response was incorrect, decrease difficulty
-          object_velocity = object_velocity - velocity_step;
-          staircse_increasing = 0;
+ 
+   if (trial_counter < num_trials_to_show) {
+
+       for (var i = 0; i < num_objects; i++) {                            // clear object selection and all variables
+         var idx =  i+1;
+         var obj = "im" + idx;
+         document.getElementById(obj).src = "webfile/object.png"; 
        }
+   
+       waiting_for_response = 0;   
+       frame_index = 0; 
+       object_x = [];
+       object_y = [];
+       object_angle = []; 
+   
+       init_positions();
+       fixation_cross(); 
    
        clicked_on_num_objects = 0; 
        clicked_on_num_correct = 0;
-       setTimeout(nextFrame, frameTiming);   // restarting the trial
-   
+  
+       trial_counter++;
+       setTimeout(nextFrame, frameTiming);   // restarting the trial  
+    
     } else {
-       alert("Thanks! Your velocity is: " + object_velocity );
+        alert("Your accuracy for stable: " ); // and for unstable .... TBD
     }
-   
-                                      
-  } else {
-    //document.getElementById("im1").src = "webfile/sad1.png"; // debugging
   }
 }
  
