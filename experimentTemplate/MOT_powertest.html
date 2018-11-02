@@ -56,6 +56,7 @@ padding-top: 5px;
 #background_container { 
  background: black;
  position: relative;
+ background_image:;
  background-repeat: no-repeat;
  background-position: center;
  text-align:center; 
@@ -165,7 +166,7 @@ var backgrounds = ["webfile/stable-laptop-1-hd.jpg", "webfile/stable-laptop-2-hd
                    "webfile/unstable-laptop-1-hd.jpg", "webfile/unstable-laptop-2-hd.jpg", "webfile/unstable-laptop-3-hd.jpg)"];
  
 
-var num_trials_to_show = 120; // make multiples of 6
+var num_trials_to_show = 6; // make multiples of 6
 var trial_backgrounds = []; 
 var trial_type = [];   // stable = 0, unstable = 1 TBD - initialise
 var trial_counter = 0; 
@@ -238,6 +239,8 @@ function fixation_cross() {
 function load() {
     var img = bkgrd_per_trial[trial_counter];
     document.getElementById("background_container").style.backgroundImage = "url('" + backgrounds[img] + "')";
+    
+    alert(bkgrd_per_trial);
  
     fixation_cross(); 
     init_positions();
@@ -317,7 +320,8 @@ function keypressed(event) {
        clicked_on_num_correct = 0;
   
        trial_counter++;
-       setTimeout(nextFrame, frameTiming);   // restarting the trial  
+       setTimeout(nextFrame, frameTiming);   // restarting the trial 
+       alert(trial_counter);
     
     } else {
         alert("Your accuracy for stable: " ); // and for unstable .... TBD
