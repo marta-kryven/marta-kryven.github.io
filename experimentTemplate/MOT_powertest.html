@@ -240,7 +240,7 @@ function load() {
     var img = bkgrd_per_trial[trial_counter];
     document.getElementById("background_container").style.backgroundImage = "url('" + backgrounds[img] + "')";
     
-    alert(img);
+    
  
     fixation_cross(); 
     init_positions();
@@ -318,8 +318,12 @@ function keypressed(event) {
    
        clicked_on_num_objects = 0; 
        clicked_on_num_correct = 0;
-  
+    
        trial_counter++;
+       
+       var img = bkgrd_per_trial[trial_counter];
+       document.getElementById("background_container").style.backgroundImage = "url('" + backgrounds[img] + "')";
+       
        setTimeout(nextFrame, frameTiming);   // restarting the trial 
        alert(trial_counter);
     
