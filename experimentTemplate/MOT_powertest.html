@@ -1,5 +1,5 @@
 <!-- showing MOT task on an image background -->
-<!-- This page does staircase calibration to select the target velocity, this is not the actual experiment yet.-->
+<!-- This page is meant to compare accuracy levels between precarious conditions and non-precarious conditions at subject threshold, this is not the actual experiment yet.-->
 
 <!DOCTYPE html>
 <html>
@@ -181,7 +181,20 @@ var correct_responses_unstable = 0;
 //       control functions
 //
 // --------------------------------------------------------------------------------------------------- 
-
+ 
+Array.prototype.shuffle = function() {
+    var input = this;
+     
+    for (var i = input.length-1; i >=0; i--) {
+     
+        var randomIndex = Math.floor(Math.random()*(i+1)); 
+        var itemAtIndex = input[randomIndex]; 
+         
+        input[randomIndex] = input[i]; 
+        input[i] = itemAtIndex;
+    }
+    return input;
+}
 
 function init_positions() {
      var MOT_width = document.getElementById("task_container").offsetWidth;
@@ -217,12 +230,12 @@ function fixation_cross() {
 function load() {
  
     // generating backgrounds for each trial
-    var bkg_idx = 0;
-    for (i = 0; i < num_trials_to_show; i++) { 
+   // var bkg_idx = 0;
+    //for (i = 0; i < num_trials_to_show; i++) { 
      
-        if (bkg_idx > backgrounds.length - 1 ) bkg_idx = 0;
-        trial_backgrounds.push(backgrounds[bkg_idx]);
-    }
+      //  if (bkg_idx > backgrounds.length - 1 ) bkg_idx = 0;
+      //  trial_backgrounds.push(backgrounds[bkg_idx]);
+   // }
      
     // TODO: shuffle backgrounds
  
