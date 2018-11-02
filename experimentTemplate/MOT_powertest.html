@@ -56,7 +56,6 @@ padding-top: 5px;
 #background_container { 
  background: black;
  position: relative;
- background-image: url("webfile/stable-laptop-1-hd.jpg");  /* "webfile/background_practice.jpg" for a non-laptop background */
  background-repeat: no-repeat;
  background-position: center;
  text-align:center; 
@@ -147,11 +146,9 @@ var object_size = 25;
  
 var num_objects = 8;             // how many objects ?
 var num_targets = 3;             // how many of them are targets ?
-var object_velocity = 2.5;       // how far do the objects move per frame
-var velocity_step = 0.2;         // step used to calibrate object velocity 
+var object_velocity = 11.5;       // set at threshold for participant
 var frameTiming = 50;            // time im milliseconds between frames - set this variable to control the speed of animation 
-var num_reversals = 0;           // the number of reversals that we need for staircasing 
-var staircse_increasing = 1;     // we are currently in the increasing mode
+
  
 // ---------------------------------------------------------------------------------------------------
 //
@@ -172,7 +169,10 @@ var num_trials_to_show = 120;
 var trial_backgrounds = []; 
 var trial_type = [];   // stable = 0, unstable = 1 TBD - initialise
 var trial_counter = 0; 
-
+var bkgrd_indicies = [...Array(6).keys()]
+var repetitions = num_trials_to_show / 6;
+var bkgrd_per_trial = [];
+   
 var correct_responses_stable = 0; // TBD: increment us
 var correct_responses_unstable = 0; 
  
@@ -195,6 +195,14 @@ Array.prototype.shuffle = function() {
     }
     return input;
 }
+
+for (let i = 0; i < repetitions; i++) {
+    
+    var bkgrd_indicies = [...Array(6).keys()];
+    var shuffled_indicies = bkgrd_indicies.shuffle();
+    bkgrd_per_trial = bkgrd_per_trial.concat(shuffled_indicies)
+}
+
 
 function init_positions() {
      var MOT_width = document.getElementById("task_container").offsetWidth;
@@ -228,6 +236,8 @@ function fixation_cross() {
  
 /* this is the load window event */ 
 function load() {
+    document.body.style.backgroundImage = url(background_img[trial_counter])
+ 
  
     // generating backgrounds for each trial
    // var bkg_idx = 0;
