@@ -165,12 +165,12 @@ var backgrounds = ["webfile/stable-laptop-1-hd.jpg", "webfile/stable-laptop-2-hd
                    "webfile/unstable-laptop-1-hd.jpg", "webfile/unstable-laptop-2-hd.jpg", "webfile/unstable-laptop-3-hd.jpg" ];
  
 
-var num_trials_to_show = 120;
+var num_trials_to_show = 120; // make multiples of 6
 var trial_backgrounds = []; 
 var trial_type = [];   // stable = 0, unstable = 1 TBD - initialise
 var trial_counter = 0; 
 var bkgrd_indicies = [...Array(6).keys()]
-var repetitions = num_trials_to_show / 6;
+var repetitions = (num_trials_to_show / 6);
 var bkgrd_per_trial = [];
    
 var correct_responses_stable = 0; // TBD: increment us
@@ -199,8 +199,8 @@ Array.prototype.shuffle = function() {
 for (let i = 0; i < repetitions; i++) {
     
     var bkgrd_indicies = [...Array(6).keys()];
-    var shuffled_indicies = bkgrd_indicies.shuffle();
-    bkgrd_per_trial = bkgrd_per_trial.concat(shuffled_indicies)
+    var shuffled_indicies = bkgrd_indicies.shuffle(); // psuedorandomizes backgrounds in blocks of 6
+    bkgrd_per_trial = bkgrd_per_trial.concat(shuffled_indicies);
 }
 
 
@@ -236,7 +236,8 @@ function fixation_cross() {
  
 /* this is the load window event */ 
 function load() {
-    document.body.style.backgroundImage = url(background_img[trial_counter])
+    var bkgrd_img = bkgrd_per_trial[trial_counter];
+    document.body.style.backgroundImage = url(backgrounds[img]);
  
  
     // generating backgrounds for each trial
