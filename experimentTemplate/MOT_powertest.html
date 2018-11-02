@@ -322,10 +322,11 @@ function keypressed(event) {
        trial_counter++;
        
        var img = bkgrd_per_trial[trial_counter];
+    
        document.getElementById("background_container").style.backgroundImage = "url('" + backgrounds[img] + "')";
        
        setTimeout(nextFrame, frameTiming);   // restarting the trial 
-       alert(trial_counter);
+       alert(trial_counter + "image:" + img + backgrounds[img]);
     
     } else {
         alert("Your accuracy for stable: " ); // and for unstable .... TBD
