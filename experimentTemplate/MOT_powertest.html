@@ -238,7 +238,7 @@ function fixation_cross() {
 /* this is the load window event */ 
 function load() {
     var img = bkgrd_per_trial[trial_counter];
- console.log("img = ", img, backgrounds);
+ console.log("img = ", img, backgrounds[img], backgrounds);
     document.getElementById("background_container").style.backgroundImage = "url('" + backgrounds[img] + "')";
     
     
