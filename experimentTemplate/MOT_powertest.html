@@ -324,6 +324,7 @@ function keypressed(event) {
        
        var img = bkgrd_per_trial[trial_counter];
     
+       console.log("img = ", img, backgrounds[img], backgrounds, "url('" + backgrounds[img] + "')");    
        document.getElementById("background_container").style.backgroundImage = "url('" + backgrounds[img] + "')";
        
        setTimeout(nextFrame, frameTiming);   // restarting the trial 
