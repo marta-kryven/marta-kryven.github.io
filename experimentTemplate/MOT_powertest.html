@@ -300,7 +300,7 @@ function keypressed(event) {
  
   if (event.keyCode == 32 && clicked_on_num_objects == num_targets) {
  
-   if (trial_counter < num_trials_to_show) {
+   if (trial_counter < num_trials_to_show - 1) {
 
        for (var i = 0; i < num_objects; i++) {                            // clear object selection and all variables
          var idx =  i+1;
