@@ -271,17 +271,19 @@ function targetclicked(event) {
         clicked_on_num_objects++;
         clicked_on_num_correct++;
       } 
-      if (bkgrd_per_trial[trial_counter] < 3 && clicked_on_num_correct == 3) {
-            correct_responses_stable++;
-       } else if (bkgrd_per_trial[trial_counter] >= 3) {
-            correct_responses_unstable++;
-      }
-          
+     
  
       if (clicked_on_num_objects == num_targets) {
         document.getElementById("message").innerHTML = "Thank you! Press SPACE to try again.";
        
-         
+         if (clicked_on_num_correct == num_targets) {
+            if (bkgrd_per_trial[trial_counter] < 3) {
+             correct_responses_stable++;
+            } else if (bkgrd_per_trial[trial_counter] >= 3) {
+            correct_responses_unstable++;
+            }
+        }
+          
         
         // TBD: if this was PHP here we would submit the form and the response 
       }
