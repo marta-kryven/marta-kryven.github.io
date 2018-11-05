@@ -274,7 +274,8 @@ function targetclicked(event) {
      
  
       if (clicked_on_num_objects == num_targets) {
-         document.getElementById("message").innerHTML = "Thank you! Press SPACE to try again. (" + (trial_counter+1) + " out of " + num_trials_to_show + ")";
+         var tid = trial_counter+1;
+         document.getElementById("message").innerHTML = "Thank you! Press SPACE to try again. (" + tid + " out of " + num_trials_to_show + ")";
        
          if (clicked_on_num_correct == num_targets) {
             if (bkgrd_per_trial[trial_counter] < 3) {
