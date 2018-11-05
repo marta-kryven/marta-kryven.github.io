@@ -238,7 +238,7 @@ function fixation_cross() {
 /* this is the load window event */ 
 function load() {
     var img = bkgrd_per_trial[trial_counter];
- console.log("img = ", img, backgrounds[img], backgrounds, "url('" + backgrounds[img] + "')");
+    console.log("img = ", img, backgrounds[img], backgrounds, "url('" + backgrounds[img] + "')");
     document.getElementById("background_container").style.backgroundImage = "url('" + backgrounds[img] + "')";
     
     
@@ -274,6 +274,13 @@ function targetclicked(event) {
  
       if (clicked_on_num_objects == num_targets) {
         document.getElementById("message").innerHTML = "Thank you! Press SPACE to try again.";
+       
+         if (bkgrd_per_trial[trial_counter] < 3) {
+            correct_responses_stable++;
+       } else if (bkgrd_per_trial[trial_counter] >= 3) {
+            correct_responses_unstable++;
+       }
+          
         
         // TBD: if this was PHP here we would submit the form and the response 
       }
@@ -330,7 +337,7 @@ function keypressed(event) {
        setTimeout(nextFrame, frameTiming);   // restarting the trial 
     
     } else {
-        alert("Your accuracy for stable: " ); // and for unstable .... TBD
+        alert("Your accuracy for stable: ", correct_responses_stable, "Your accuracy for unstable: ", correct_responses_unstable ); // and for unstable .... TBD
     }
   }
 }
