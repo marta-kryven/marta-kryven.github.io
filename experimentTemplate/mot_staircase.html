@@ -283,15 +283,18 @@ function keypressed(event) {
      Staircase the difficulty of the next trial based on how the subject responded 
      */
      
-     if (num_reversals < 4) {
+     if (num_reversals < 3) {
        if (clicked_on_num_correct == clicked_on_num_objects) {
           
-          // the last response was correct, do we want to increase difficulty?
-          object_velocity = object_velocity + 3*velocity_step;
-        
           if (staircse_increasing == 0) {
             // if we got here this means we have reversed
             num_reversals++;
+            if (num_reversals < 3) {
+              // the last response was correct, do we want to increase difficulty?
+              object_velocity = object_velocity + 3*velocity_step;
+            }
+          } else {
+            object_velocity = object_velocity + 3*velocity_step;
           }
         
           staircse_increasing = 1;
