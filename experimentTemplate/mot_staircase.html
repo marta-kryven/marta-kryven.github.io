@@ -148,7 +148,7 @@ var object_size = 25;
 var num_objects = 8;             // how many objects ?
 var num_targets = 4;             // how many of them are targets ?
 var object_velocity = 2.2;       // how far do the objects move per frame
-var velocity_step = 0.2;         // step used to calibrate object velocity 
+var velocity_step = 0.5;         // step used to calibrate object velocity 
 var frameTiming = 32;            // time im milliseconds between frames - set this variable to control the speed of animation 
 var num_reversals = 0;           // the number of reversals that we need for staircasing 
 var staircse_increasing = 1;     // we are currently in the increasing mode
@@ -291,10 +291,10 @@ function keypressed(event) {
             num_reversals++;
             if (num_reversals < 3) {
               // the last response was correct, do we want to increase difficulty?
-              object_velocity = object_velocity + 2*velocity_step;
+              object_velocity = object_velocity + 3*velocity_step;
             }
           } else {
-            object_velocity = object_velocity + 2*velocity_step;
+            object_velocity = object_velocity + 3*velocity_step;
           }
         
           staircse_increasing = 1;
