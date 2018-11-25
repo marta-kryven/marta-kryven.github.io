@@ -67,10 +67,10 @@ var bs = "<?php global  $browser; echo  $browser; ?>";
 function loadEventHandler() {
  
   if ( Math.random() > 0.5 ) {
-        document.forms["frm"].action = "int_exp1.php";
+        document.forms["frm"].action = "int_exp1.php";  // planning task
         task = "task1";
   } else {
-        document.forms["frm"].action = "int_exp2.php";
+        document.forms["frm"].action = "int_exp2.php"; // attribution task
         task = "task2";
   }
 
