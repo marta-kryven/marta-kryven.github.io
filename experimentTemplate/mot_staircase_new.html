@@ -284,8 +284,12 @@ function keypressed(event) {
     if (num_reversals < 3) {
       if (clicked_on_num_correct == clicked_on_num_objects) {
         if (staircase_increasing == 0) {
+          
           // if we got here this means we have reversed
           num_reversals++;
+          velocity_step *= 0.8
+          console.log(velocity_step);
+          
           if (num_reversals < 3) {
             // the last response was correct, do we want to increase difficulty?
             object_velocity += 3*velocity_step;
@@ -299,12 +303,6 @@ function keypressed(event) {
       } else {
         // the last response was incorrect, decrease difficulty
         object_velocity -= velocity_step;
-
-        if (staircase_increasing == 1) {
-          velocity_step *= 0.8
-          console.log(velocity_step);
-        }
-
         staircase_increasing = 0;
       }
 
@@ -312,6 +310,7 @@ function keypressed(event) {
       clicked_on_num_correct = 0;
       setTimeout(nextFrame, frameTiming);   // restarting the trial
     } else {
+      object_velocity = object_velocity-velocity_step;
       alert(`Thanks! Your velocity is: ${object_velocity}`);
     }
   } else {
