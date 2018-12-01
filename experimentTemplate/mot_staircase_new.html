@@ -182,12 +182,12 @@ function init_positions() {
   var MOT_height = document.getElementById("task_container").offsetHeight;
 
   for (var i = 0; i < num_objects; i++) {
-    var x = Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius;
-    var y = Math.random()*(MOT_height-repulsion_radius*2) + repulsion_radius;
+    var x = Math.random()*(MOT_width -repulsion_radius*4) + repulsion_radius*2;
+    var y = Math.random()*(MOT_height-repulsion_radius*4) + repulsion_radius*2;
 
     while (!check_constraints(x, y, num_objects)) {
-      x = Math.random()*(MOT_width -repulsion_radius*2) + repulsion_radius;
-      y = Math.random()*(MOT_height-repulsion_radius*2) + repulsion_radius;
+      x = Math.random()*(MOT_width -repulsion_radius*4) + repulsion_radius*2;
+      y = Math.random()*(MOT_height-repulsion_radius*4) + repulsion_radius*2;
     }
 
     object_x.push(x);
