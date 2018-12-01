@@ -310,7 +310,8 @@ function keypressed(event) {
       clicked_on_num_correct = 0;
       setTimeout(nextFrame, frameTiming);   // restarting the trial
     } else {
-      object_velocity = object_velocity-velocity_step;
+      
+      object_velocity = object_velocity-velocity_step*2; // party undo the last increase
       alert(`Thanks! Your velocity is: ${object_velocity}`);
     }
   } else {
