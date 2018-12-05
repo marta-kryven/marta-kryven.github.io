@@ -126,7 +126,7 @@ html, body {
 // ---------------------------------------------------------------------------------------------------
 
 var frame_index = 0;             // where are we in the animation?
-var num_fixation_frames = 10;     // for how many frames to show fixation cross
+var num_fixation_frames = 20;     // for how many frames to show fixation cross
 var num_moving_frames = 100;      // how long should the tracking animation last
 var num_blink_frames = 30;       // how long the blinking animtion lasts
 var repulsion_radius = 35;       // object orbit
@@ -169,7 +169,7 @@ var backgrounds = [
   "webfile/unstable-laptop-3-hd.jpg"
 ];
 
-var num_trials_to_show = 12; // make multiples of 6
+var num_trials_to_show = 30; // make multiples of 6
 var trial_backgrounds = [];
 var trial_type = [];   // stable = 0, unstable = 1 TBD - initialise
 var trial_counter = 0;
@@ -478,7 +478,7 @@ function nextFrame() {
 
   } else if (frame_index < num_fixation_frames + num_blink_frames) {
     // draw blinking of the target objects
-    if (frame_index % 2 == 0) {
+    if (frame_index % 3 !== 0) {
       reset_object_positions(num_targets);
     } else {
       init_object_positions(num_targets);
