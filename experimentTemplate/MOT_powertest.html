@@ -26,6 +26,18 @@ html, body {
  
 #fixationcross { position: absolute; top: -400px; left: -500px; }
  
+ #task_container {
+    position: absolute;
+    text-align: center;
+    font-size: 110%;
+    width: 353px;
+    height: 219px;
+    top: 282px;
+    left: 548px;
+    background: black;
+}
+ 
+ /* old code
 #task_container { 
  position: absolute;
  text-align: center; 
@@ -33,9 +45,10 @@ html, body {
  width: 410px; 
  height: 240px; 
  top: 180px;
- left: 505px;                  /*   left will be 510 for the unstable laptop  */
+ left: 505px;                     left will be 510 for the unstable laptop  
  background: black;              
 }
+ */
  /* btw, this is how you write comments in CSS */
  
 #page_container { 
@@ -72,7 +85,7 @@ background-size: 1450px;
 }
 
  
- @media screen and (max-width: 899px) {
+ @media screen and (max-width: 1279px) {
 body {
     background: white;
   }
@@ -80,7 +93,7 @@ body {
 display: none;
     }
 #page_container::before { 
- content: "This experiment is not optimized for mobile devices. Please use a laptop or desktop computer.";
+ content: "This experiment is not optimized for smaller resolutions. Please use a computer with a resolution minimum of 1280px wide.";
   color: black;
     text-align: center;
     vertical-align: middle;
