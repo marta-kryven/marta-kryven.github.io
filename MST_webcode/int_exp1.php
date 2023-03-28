@@ -1,4 +1,3 @@
-<!-- renamed .php file as html to demo from github -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +24,7 @@ function test_input($data) {
    return $data;
 }
 
-$dir = "att-test";
+$dir = "data";
 $UID =  "";
 $ip=$_SERVER['REMOTE_ADDR'];
 $date = date('d/F/Y h:i:s'); 
