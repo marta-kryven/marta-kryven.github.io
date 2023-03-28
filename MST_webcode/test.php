@@ -36,7 +36,7 @@ function test_input($data) {
 
 // define variables and set to empty values
 $UID =  "";
-$dir = "att-test";
+$dir = "data";
 $steps = 0; 
 $practice_dir = "webfile/practice";
 $easy_dir="webfile/easy";
