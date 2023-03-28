@@ -71,10 +71,13 @@ By clicking 'I agree' you indicate your consent to participate in this study.
 </div>
 
 <div id="ex1_container">
-<form name="frm" action="" method="post" onsubmit="return validateForm()">
-  <input type="text" name="UID" hidden>
-  <input style="padding:10px 20px; background:#ccff00; border:0 none; cursor:pointer; box-shadow: 2px 2px #888888;" type="submit" value="I agree"/>
-</form>
+	 <!-- renamed .php page as html to demo from github, original code commented below -->
+	 <button onclick="window.location.href = 'int_exp1.html';">I agree</button>
+	
+<!-- <form name="frm" action="" method="post" onsubmit="return validateForm()"> -->
+<!--  <input type="text" name="UID" hidden> -->
+<!--  <input style="padding:10px 20px; background:#ccff00; border:0 none; cursor:pointer; box-shadow: 2px 2px #888888;" type="submit" value="I agree"/> -->
+<!-- </form> -->
 
 </div>
 
@@ -85,10 +88,7 @@ var bs = "<?php global  $browser; echo  $browser; ?>";
 
 function loadEventHandler() {
  
-  // renamed .php file as html to demo from github	
-  //document.forms["frm"].action = "int_exp1.php";
-  document.forms["frm"].action = "int_exp1.html";
-
+  document.forms["frm"].action = "int_exp1.php";
   if (browserok == 2) {
     //  s  = document.getElementById("ex2_container").innerHTML;
     //  document.getElementById("ex1_container").innerHTML = "<br><br><font color='red'>UNFORTUNATELY YOUR BROWSER IS NOT SUPPORTED.</font>";
