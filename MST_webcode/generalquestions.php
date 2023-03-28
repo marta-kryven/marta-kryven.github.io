@@ -21,7 +21,7 @@ function test_input($data) {
 $showend = 0;
 $rank = 9;
 $rankBonusCutoff = 3;
-$dir = "att-test";
+$dir = "data";
 
 $ip=$_SERVER['REMOTE_ADDR'];
 $date = date('d/F/Y h:i:s'); // date of the visit that will be formated this way: 29/May/2011 2512:20:03
