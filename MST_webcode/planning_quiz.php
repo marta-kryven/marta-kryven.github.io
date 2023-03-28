@@ -24,7 +24,7 @@ function test_input($data) {
 
 $UID =  "";
 $instructionsOK = 0; 
-$dir = "att-test";
+$dir = "data";
 
 $UID = "subjectTMP";
 $ip=$_SERVER['REMOTE_ADDR'];
