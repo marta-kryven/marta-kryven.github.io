@@ -24,7 +24,7 @@ $browser = str_replace(' ', '_', $browser);
 $validRequest = 0;
 $showEndNext = "true";
 // set this to one when comment submitted
-$dir = "att-test";
+$dir = "data";
 $vallidRequest=0;
 
 // do not allow GET
