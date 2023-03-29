@@ -1,0 +1,5 @@
+.html files here are not part of the experiment 
+they were created to host a demo on github, but only the instruction pages are implemented in html
+test.php still needs to be implemented without POST requests and withut PHP, such as hardcoding a sequence of maps for each demo trial
+
+The .php code is the latest experiment code as of april 2023, it may be not clean/commented as is was edited a few times and not cleaned up
