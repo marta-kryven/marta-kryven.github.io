@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Website</title>
+    <title>Marta Kryven</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #ffffff;
         }
         header {
             background-color: #333;
@@ -39,7 +39,15 @@
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar nav a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 10px 0;
+        }
+        .sidebar nav a:hover {
+            color: #575757;
         }
         .main-content {
             flex: 3;
@@ -47,7 +55,6 @@
             margin-left: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .photo-placeholder {
             width: 300px;
@@ -57,6 +64,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px;
         }
         .photo-placeholder img {
             width: 100%;
@@ -68,16 +76,23 @@
 <body>
     <header>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Publications</a>
-            <a href="#">People</a>
-            <a href="#">Teaching</a>
-            <a href="#">Experiments</a>
+            <a href="index.html">Home</a>
+            <a href="publications.html">Publications</a>
+            <a href="people.html">People</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="experiments.html">Experiments</a>
         </nav>
     </header>
     <div class="container">
         <div class="sidebar">
-            <div src="portrait.jpg" class="photo-placeholder">Photo</div>
+            <div class="photo-placeholder">
+                <img src="portrait.jpg" alt="Researcher's Photo">
+            </div>
+            <nav>
+                <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://github.com" target="_blank">Github</a>
+            </nav>
         </div>
         <div class="main-content">
             <h1>Marta Kryven</h1>
