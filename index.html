@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header nav {
+            margin: 0;
+            padding: 0;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+        }
+        header nav a:hover {
+            background-color: #575757;
+        }
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .main-content {
+            flex: 3;
+            padding: 20px;
+            margin-left: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .photo-placeholder {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Publications</a>
+            <a href="#">People</a>
+            <a href="#">Teaching</a>
+            <a href="#">Experiments</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div src="portrait.jpg" class="photo-placeholder">Photo</div>
+        </div>
+        <div class="main-content">
+            <h1>Marta Kryven</h1>
+            <p>I am a computational cognitive scientist working with AI and experimental psychology. 
+              In the past, I designed computational models of how people think and perceive. 
+              Now I am using LLM to understand cognition, and using cognition to understand LLM. 
+              Check out my publications to see more about my projects.</p>
+        </div>
+    </div>
+</body>
+</html>
