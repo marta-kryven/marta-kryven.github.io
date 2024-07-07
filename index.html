@@ -81,72 +81,9 @@
         }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@1.0.0/src/bibtex_js.js"></script>
-    <script>
-                    const bibtexContent = `
-                        @article{bongiorno2021vector,
-                          title={Vector-based pedestrian navigation in cities},
-                          author={Bongiorno, Christian and Zhou, Yulun and Kryven, Marta and Theurel, David and Rizzo, Alessandro and Santi, Paolo and Tenenbaum, Joshua and Ratti, Carlo},
-                          journal={Nature Computational Science},
-                          volume={1},
-                          number={10},
-                          pages={678--685},
-                          year={2021},
-                          publisher={Nature Publishing Group US New York}
-                        }
-
-                        @article{kryven2021plans,
-                          title={Plans or outcomes: How do we attribute intelligence to others?},
-                          author={Kryven, Marta and Ullman, Tomer D and Cowan, William and Tenenbaum, Joshua B},
-                          journal={Cognitive Science},
-                          volume={45},
-                          number={9},
-                          pages={13-41},
-                          year={2021},
-                          publisher={Wiley Online Library}
-                        }
-                        `;
-
-                    function formatAPA(entry) {
-                        const { entryTags, entryType } = entry;
-                        const { author, title, journal, year, volume, number, pages, publisher, address, edition } = entryTags;
-                        let formattedEntry = '';
-
-                        switch (entryType.toLowerCase()) {
-                            case 'article':
-                                formattedEntry = `${author}. (${year}). ${title}. <em>${journal}</em>, ${volume}(${number}), ${pages}.`;
-                                break;
-                            case 'book':
-                                formattedEntry = `${author}. (${year}). <em>${title}</em> (${edition} ed.). ${address}: ${publisher}.`;
-                                break;
-                            default:
-                                formattedEntry = `${author}. (${year}). ${title}.`;
-                        }
-                        return formattedEntry;
-                    }
-
-                    function displayPublications(entries) {
-                        const container = document.getElementById('publications');
-                        container.innerHTML = '';
-                        entries.forEach(entry => {
-                            const div = document.createElement('div');
-                            div.className = 'publication';
-                            div.innerHTML = formatAPA(entry);
-                            container.appendChild(div);
-                        });
-                    }
-
-                    function init() {
-                        const bibtexParser = new BibtexParser();
-                        bibtexParser.setInput(bibtexContent);
-                        bibtexParser.bibtex();
-                        const entries = bibtexParser.getEntries();
-                        displayPublications(entries);
-                    }
-
-                    window.onload = init;
-    </script>
 </head>
 <body>
+    <bibtex src="test.bib"></bibtex>
     <header>
         <nav>
             <a href="index.html">Home</a>
@@ -191,9 +128,7 @@
             <p>computational models of behaviour, spatial navigation, representation learning, program synthesis, computational creativity</p>
             
             <h2>Selected Publications</h2>
-            <div id="publications">
-            </div>
-            
+            <div id="bibtex_display"></div>
         </div>
     </div>
 </body>
