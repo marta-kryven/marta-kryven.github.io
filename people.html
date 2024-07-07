@@ -46,6 +46,8 @@
         form {
             display: flex;
             flex-direction: column;
+            max-width: 400px;
+            margin: auto;
         }
         form label {
             margin: 10px 0 5px;
@@ -100,10 +102,10 @@
                 <input type="email" id="email" name="email" required>
 
                 <label for="interests">Which kinds of problems you are most interested in:</label>
-                <textarea id="interests" name="interests" rows="4" required></textarea>
+                <textarea id="interests" name="interests" rows="10" required></textarea>
 
-                <label for="inspiration">Please share a link to an article or a blog post that inspires you:</label>
-                <input type="url" id="inspiration" name="inspiration" required>
+                <label for="inspiration">An article or a blog post that inspires you:</label>
+                <input type="url" id="inspiration" rows="4" name="inspiration" required>
 
                 <button type="submit">Submit</button>
             </form>
