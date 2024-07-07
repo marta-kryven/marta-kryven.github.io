@@ -24,10 +24,6 @@
         header nav a:hover {
             background-color: #f4f4f4;
         }
-        .container {
-            display: flex;
-            margin: 20px;
-        }
         h1, h2 {
             color: #333;
         }
