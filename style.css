@@ -28,13 +28,6 @@
             display: flex;
             margin: 20px;
         }
-        .main-content {
-            flex: 3;
-            padding: 20px;
-            margin-left: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-        }
         h1, h2 {
             color: #333;
         }
