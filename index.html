@@ -76,6 +76,9 @@
             height: 100%;
             object-fit: cover;
         }
+        .publication {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -115,11 +118,65 @@
               Now I am using LLM to understand cognition, and using cognition to understand LLM. 
               Check out my publications to see more about my projects.</p>
             
-            <h1>Research interests:</h1>
-            <p>spatial navigation, program synthesis, computational models of behaviour, computational creativity</p>
-            
-            <a href="mailto:mr40917@dal.ca?subject=Consulting Inquiry">Contact me for consulting</a>
+            <h2>Research interests</h2>
+            <p>spatial navigation, representation learning, program synthesis, computational models of behaviour, computational creativity</p>
 
+            <a href="mailto:mr40917@dal.ca?subject=Consulting Inquiry">Contact me for consulting</a>
+            
+            <h2>Selected Publications</h2>
+            <div id="publications">
+                <script src="https://cdn.jsdelivr.net/npm/bibtex-js/dist/bibtex.js"></script>
+                <script>
+                    const bibtexContent = `
+                        @article{bongiorno2021vector,
+                          title={Vector-based pedestrian navigation in cities},
+                          author={Bongiorno, Christian and Zhou, Yulun and Kryven, Marta and Theurel, David and Rizzo, Alessandro and Santi, Paolo and Tenenbaum, Joshua and Ratti, Carlo},
+                          journal={Nature Computational Science},
+                          volume={1},
+                          number={10},
+                          pages={678--685},
+                          year={2021},
+                          publisher={Nature Publishing Group US New York}
+                        }
+                        `;
+
+                    function formatAPA(entry) {
+                        const { entryTags, entryType } = entry;
+                        const { author, title, journal, year, volume, number, pages, publisher, address, edition } = entryTags;
+                        let formattedEntry = '';
+
+                        switch (entryType.toLowerCase()) {
+                            case 'article':
+                                formattedEntry = `${author}. (${year}). ${title}. <em>${journal}</em>, ${volume}(${number}), ${pages}.`;
+                                break;
+                            case 'book':
+                                formattedEntry = `${author}. (${year}). <em>${title}</em> (${edition} ed.). ${address}: ${publisher}.`;
+                                break;
+                            default:
+                                formattedEntry = `${author}. (${year}). ${title}.`;
+                        }
+                        return formattedEntry;
+                    }
+
+                    function displayPublications(entries) {
+                        const container = document.getElementById('publications');
+                        container.innerHTML = '';
+                        entries.forEach(entry => {
+                            const div = document.createElement('div');
+                            div.className = 'publication';
+                            div.innerHTML = formatAPA(entry);
+                            container.appendChild(div);
+                        });
+                    }
+
+                    const bibtexParser = new BibtexParser();
+                    bibtexParser.setInput(bibtexContent);
+                    bibtexParser.bibtex();
+                    const entries = bibtexParser.getEntries();
+                    displayPublications(entries);
+                </script>
+            </div>
+            
         </div>
     </div>
 </body>
