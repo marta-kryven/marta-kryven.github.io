@@ -13,11 +13,6 @@
             margin-bottom: 10px;
         }
     </style>
-</head>
-<body>
-    <h1>Selected Publications</h1>
-    <div id="publications"></div>
-
     <script src="https://cdn.jsdelivr.net/npm/bibtex-js/dist/bibtex.js"></script>
     <script>
         const bibtexContent = `
@@ -79,5 +74,9 @@
         const entries = bibtexParser.getEntries();
         displayPublications(entries);
     </script>
+</head>
+<body>
+    <h1>Selected Publications</h1>
+    <div id="publications"></div>
 </body>
 </html>
