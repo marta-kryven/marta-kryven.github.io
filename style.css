@@ -28,49 +28,10 @@
             display: flex;
             margin: 20px;
         }
-        .sidebar {
-            flex: 1;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-        }
-        .sidebar nav a {
-            display: flex;
-            align-items: center;
-            color: #333;
-            text-decoration: none;
-            padding: 10px 0;
-        }
-        .sidebar nav a:hover {
-            color: #575757;
-        }
-        .sidebar nav img {
-            margin-right: 10px;
-        }
         .main-content {
             flex: 3;
             padding: 20px;
             margin-left: 20px;
             background-color: #fff;
             border-radius: 8px;
-        }
-        .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .bibtex-author, .bibtex-title, .bibtex-journal, .bibtex-pages, .bibtex_display {
-            font-weight: normal; 
-            margin-left: 0; 
-            padding-left: 0; 
         }
