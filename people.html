@@ -3,47 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CC Lab</title>
+    <title>People | Computation and Cognition Lab</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .container {
-            margin: 20px;
-        }
-        ul {
-            list-style-type: disc; /* Ensures the bullet points are dots */
-            margin-left: 20px; /* Adds indentation for better readability */
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 800px;
-            margin: auto;
-        }
-        form label {
-            margin: 10px 0 5px;
-        }
-        form input, form textarea {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        form button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #575757;
+        .people-page { max-width: 1080px; margin: 0 auto; padding: 56px 32px 80px; }
+        .intro { max-width: 760px; margin-bottom: 56px; font-size: 1.35rem; line-height: 1.45; }
+        .people-section { margin-top: 56px; }
+        .people-section h1, .people-section h2 { margin-bottom: 18px; }
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+        .member { border-top: 3px solid #333; padding: 18px 2px 8px; min-height: 150px; }
+        .member-photo { width: 112px; height: 112px; object-fit: cover; border-radius: 50%; margin-bottom: 12px; }
+        .member-name { display: block; font-size: 1.1rem; font-weight: 600; }
+        .member-role { margin: 4px 0 14px; color: #555; }
+        .member-research { margin: 0; font-size: .95rem; }
+        .member a, .collaborator a { color: #007bff; }
+        .collaborator-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 10px 28px; padding: 0; list-style: none; }
+        .collaborator-list li { padding: 10px 0; border-bottom: 1px solid #ddd; }
+        .collaborator-affiliation { display: block; color: #555; font-size: .95rem; margin-top: 3px; }
+        .resource-link { font-size: 1.1rem; }
+        @media (max-width: 600px) {
+            .people-page { padding: 36px 20px 56px; }
+            .intro { font-size: 1.15rem; }
         }
     </style>
 </head>
@@ -57,87 +37,55 @@
             <a href="experiments.html">Experiments</a>
         </nav>
     </header>
-    <div class="container">
-        <div class="section">
+    <main class="people-page">
+        <p class="intro">We study how humans and artificial agents learn, reason, explore, and build models of the world. Our work combines computational cognitive science, artificial intelligence, and behavioral experiments.</p>
 
-<h2>For students: Research Practice Guidelines</h2>
-<p>All new students joining the lab are encouraged to read this document, 
-    outlining our working practice: <a href="lab_practice.pdf" target="_blank">Research Practice Guidelines (PDF)</a>.</p>
+        <section class="people-section" aria-labelledby="lab-members">
+            <h1 id="lab-members">Lab Members</h1>
+            <div class="member-grid">
+                <article class="member"><span class="member-name">Marta Kryven</span><p class="member-role">Principal Investigator</p></article>
+                <article class="member">
+                    <img class="member-photo" src="Assets/max.jpg" alt="Max Mascini">
+                    <a href="https://www.linkedin.com/in/maxmascini/" target="_blank" rel="noopener"><span class="member-name">Max Mascini</span></a>
+                    <p class="member-role">MSc Student</p><p class="member-research">Policy compression in online learning</p>
+                </article>
+                <article class="member">
+                    <img class="member-photo" src="Assets/ivan.png" alt="Ivan Zareski">
+                    <a href="https://www.linkedin.com/in/ivanzareski/" target="_blank" rel="noopener"><span class="member-name">Ivan Zareski</span></a>
+                    <p class="member-role">Undergraduate</p>
+                </article>
+                <article class="member"><img class="member-photo" src="Assets/luisa.jpg" alt="Luisa El Amouri"><span class="member-name">Luisa El Amouri</span><p class="member-role">Undergraduate</p></article>
+                <article class="member"><img class="member-photo" src="Assets/jeffrey.jpg" alt="Jeffrey Qin"><span class="member-name">Jeffrey Qin</span><p class="member-role">Undergraduate (University of Waterloo)</p><p class="member-research">World model discovery, planning</p></article>
+                <article class="member"><span class="member-name">Farzin Ahmadi</span><p class="member-role">Undergraduate</p><p class="member-research">Experiment infrastructure</p></article>
+                <article class="member"><span class="member-name">Zhuangfei Gao</span><p class="member-role">Research Assistant (ICL)</p><p class="member-research">Experiment infrastructure</p></article>
+                <article class="member"><span class="member-name">Robie Gonzales</span><p class="member-role">PhD</p><p class="member-research">Modelling human music perception</p></article>
+            </div>
+        </section>
 
- 
-<p>Our lab explores questions such as:<br>
-– How do people form new theories and explore in the real world?<br>
-– How do people reason effectively in complex in long-horizon tasks?<br>
-– How can humans and machines work together to invent new concepts and tools?<br>
-</p>
- 
-<h2>Working in our lab</h2>
- 
-<p><em>The Bayesian said he'd probably be at the party, but he'd update me.</em><br> (If you laughed, you will fit in.)</p>
- 
-<p>
-Our lab connects a collaborative group of researchers at various career stages, with many active international collaborations.
-Because conference participation is important, the lab guaranteed funding to travel to major AI and cognitive science conferences for active contributors.
-</p>
- 
-<p>
-Advisor funding is available to lab members, but the Canadian funding structure is not designed for a single funding source as a living income.
-Graduate students are encouraged to actively seek scholarships, fellowships, and stack multiple funding sources — funding acquisition is a technical skill that all graduate students should develop.
-</p>
-            
-<p>We accept expressions of interest from self-motivated prospective PhD students and strong undergraduates interested to build research experience.
-Applications for directed study and honours projects are welcome.<br>
-We do not offer funding to international MSc students (ocasional support is available for exceptional Canadian applicants).<br> 
-MSc is not required for prospective PhD applicants with prior research experience.</p>
-            
-<h2>Lab member responsibilities</h2>
-<ul>
-  <li>Develop, and implement computational models</li>
-  <li>Prepare slides and progress reports for weekly meetings with academic advisors</li>
-  <li>Work effectively with the group toward conference deadlines (i.e. NeurIPS, ICLR, Cognitive Science Society)</li>
-  <li>Assist with, and eventually lead, journal publications (PLOS, Cognition, Nature group journals)</li>
-  <li>Analyze data, fit statistical models, and generate plots</li>
-  <li>Design behavioral experiments and write scripts to process behavioral data</li>
-  <li>Present research as posters and talks, informally to collaborators and at conferences</li>
-  <li>Contribute to teaching at bachelor's level as a teaching assistant</li>
-  <li>Proactively apply for scholarships and seek funding opportunities</li>
-</ul>
+        <section class="people-section" aria-labelledby="collaborators">
+            <h2 id="collaborators">Research Collaborators</h2>
+            <p>We collaborate with researchers across cognitive science and artificial intelligence.</p>
+            <ul class="collaborator-list">
+                <li class="collaborator"><a href="https://colewyeth.com/" target="_blank" rel="noopener">Cole Wyeth</a><span class="collaborator-affiliation">University of Waterloo</span></li>
+                <li class="collaborator"><a href="https://scholar.google.com/citations?user=cF8NhV0AAAAJ&amp;hl=es" target="_blank" rel="noopener">Leonardo Hernández Cano</a><span class="collaborator-affiliation">MIT</span></li>
+                <li class="collaborator"><a href="https://zhaobn.github.io/" target="_blank" rel="noopener">Bonan Zhao</a><span class="collaborator-affiliation">School of Informatics, University of Edinburgh</span></li>
+                <li class="collaborator"><a href="https://www.linkedin.com/in/emsansone" target="_blank" rel="noopener">Emanuele Sansone</a><span class="collaborator-affiliation">MIT</span></li>
+                <li class="collaborator"><a href="https://evanthebouncy.github.io/" target="_blank" rel="noopener">Yewen Pu</a><span class="collaborator-affiliation">Nanyang Technological University</span></li>
+                <li class="collaborator"><a href="https://www.cs.cornell.edu/~ellisk/" target="_blank" rel="noopener">Kevin Ellis</a><span class="collaborator-affiliation">Cornell</span></li>
+            </ul>
+        </section>
 
-<h2>Skills we consider in evaluating prospective PhD applicants</h2>
-<ul>
-  <li>Strong mathematical foundations — ability or willingness to formulate and prove theorems and analyze algorithms theoretically. 
-      Strong psychology or neuroscience graduates without a solid math background, but a willingness to learn foundations, are welcome to apply.</li>
-  <li>Research experience in a quantitative discipline: cognitive psychology, mathematics, physics, computer science, neuroscience or related fields.</li>
-  <li>A record of publications at international venues.</li>
-  <li>A working knowledge of coding (e.g. we use Python), statistics, and AI/ML.</li>
-  <li>Excellent written and spoken English.</li>
-  <li>Self-motivated, organized, and proactive.</li>
-  <li>Familiarity with LLM API, scientific computing libraries, and coding agents.</li>
-</ul>
-</div>
+        <section class="people-section" aria-labelledby="resources">
+            <h2 id="resources">Lab Resources</h2>
+            <p><a class="resource-link" href="lab_practice.pdf" target="_blank" rel="noopener">Research Practice Guidelines</a><br>Guidance for conducting research in the lab, from developing a research question through publication.</p>
+        </section>
 
-<div class="section">
-<h2>Join Us!</h2>
-<p>
-<a href="mailto:marta.kryven@protonmail.com">Contact us</a> to express interest.
-</p>
- 
-<p>Please include in your email:</p>
-<ul>
-  <li>Which research question(s) you want to work on</li>
-  <li>Which papers, books, or blog posts inspire your thinking</li>
-  <li>Your background in mathematics, psychology, and prior research experience</li>
-  <li>Your CV</li>
-</ul>
- 
-<p>
-We do not respond to AI-generated emails, generic inquiries, or emails that do not address the above.
-</p>
- 
-<p>
-The easiest way to join as a PhD student is to have worked with us previously, by contributing to one of our projects.
-The easiest way to join as an undergraduate is to send your CV, transcript, and a brief email outlining your background and prior research experience.
-</p>
-</div>
+        <section class="people-section" aria-labelledby="joining">
+            <h2 id="joining">Joining the Lab</h2>
+            <p>We welcome inquiries from research-oriented students interested in computational cognitive science and AI. Strong candidates are self-motivated and have quantitative research experience and an interest in developing computational models, running behavioral experiments, or both.</p>
+            <p>Undergraduate students do not need prior experience with all of these methods, but should have a strong interest in research, be willing to learn technical skills, and be able to work independently.</p>
+            <p>If you are interested in joining the lab, please <a href="mailto:marta.kryven@protonmail.com">email me</a> with a brief description of your research interests, why you think there is a good fit with the lab, and your CV. We do not respond to AI-generated emails.</p>
+        </section>
+    </main>
 </body>
 </html>
