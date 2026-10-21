@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Marta Kryven</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .research-page { max-width: 1080px; margin: 0 auto; padding: 56px 32px 80px; }
+        .intro { max-width: 760px; margin-bottom: 56px; }
+        .intro h1 { margin-bottom: 8px; }
+        .intro h2 { font-size: 1.35rem; line-height: 1.45; font-weight: normal; margin: 0 0 18px; }
+        .intro p, .theme p { line-height: 1.6; }
+        .theme { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: start; margin-top: 56px; padding-top: 32px; border-top: 3px solid #333; }
+        .theme h2 { margin-top: 0; }
+        .theme .question { font-size: 1.15rem; font-style: italic; }
+        .theme h3 { font-size: 1rem; margin: 24px 0 8px; }
+        .theme ul { padding-left: 20px; margin: 0; }
+        .theme li { margin-bottom: 8px; }
+        .theme a { color: #007bff; }
+        .figure svg { width: 100%; height: auto; display: block; border-radius: 6px; background: #faf8fc; }
+        @media (max-width: 800px) {
+            .theme { grid-template-columns: 1fr; gap: 20px; }
+            .figure { order: -1; max-width: 300px; }
+        }
+        @media (max-width: 600px) {
+            .research-page { padding: 36px 20px 56px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="CV_academic_full.pdf" target="_blank" rel="noopener">CV</a>
+            <a href="research.html">Research</a>
+            <a href="people.html">Computation and Cognition Lab</a>
+            <a href="teaching.html">Teaching &amp; Resources</a>
+        </nav>
+    </header>
+    <main class="research-page">
+        <section class="intro">
+            <h1>Research</h1>
+            <h2>How do intelligent systems build and use models of the world?</h2>
+            <p>Humans can learn from remarkably little experience and invent new ways of solving problems. Much of this flexibility comes from our ability to construct mental representations and organize knowledge for future reuse. My research investigates which mental computations make this possible.</p>
+            <p>I study how humans and artificial agents generate hypotheses, acquire structured representations, and plan under uncertainty, using behavioral experimentation, computational modeling of neural representations and behaviour, and AI system engineering. This approach treats biological and artificial agents as complementary sources of insight into what constitutes the general principles of intelligence, and which forms it may take.</p>
+        </section>
+
+        <section class="theme" aria-labelledby="hypothesis">
+            <div>
+                <h2 id="hypothesis">Hypothesis generation and causal learning</h2>
+                <p class="question">How do people discover explanations for unfamiliar events when the evidence is incomplete or unreliable?</p>
+                <p>Traditional Bayesian models of learning often assume that the learner begins with a predefined set of possible hypotheses. In the real world, however, people must also <strong>invent new explanations</strong> online and determine what evidence to seek. We investigate these processes through behavioral experiments and computational models of causal learning, including studies of how children, adults, and foundation models infer rules governing unfamiliar physical systems. This work examines how learners generate and revise hypotheses, assess the reliability of evidence, and balance information seeking against immediate task goals.</p>
+                <h3>Selected research</h3>
+                <ul>
+                    <li><a href="https://arxiv.org/abs/2605.24528" target="_blank" rel="noopener">Hypothesis Generation and Inductive Inference in Children and Language Models</a> (2026, preprint)</li>
+                </ul>
+            </div>
+            <div class="figure">
+                <svg viewBox="0 0 300 220" role="img" aria-label="Abstract placeholder: overlapping circles and a rectangle in aqua, pink, and orange">
+                    <circle cx="110" cy="100" r="70" fill="#2ec4b6"/>
+                    <circle cx="180" cy="95" r="62" fill="#ff7eb6"/>
+                    <rect x="120" y="105" width="130" height="85" rx="6" fill="#ff9f43"/>
+                    <circle cx="95" cy="160" r="34" fill="#8e5bd4"/>
+                </svg>
+            </div>
+        </section>
+
+        <section class="theme" aria-labelledby="abstraction">
+            <div>
+                <h2 id="abstraction">Abstraction and representation learning</h2>
+                <p class="question">How do people discover reusable concepts and representations that make future problems easier to solve?</p>
+                <p>Humans learn efficiently through recombining familiar knowledge and developing increasingly efficient representations with experience. I study the mechanisms of abstraction learning, particularly using interactive problem-solving experiments. Our results suggest that human abstraction learning is not merely an efficient memory compression, but is designed to anticipate future task demands and learn abstractions most useful for the future.</p>
+                <h3>Selected research</h3>
+                <ul>
+                    <li><a href="https://arxiv.org/abs/2605.09985" target="_blank" rel="noopener">Prospective Compression in Human Abstraction Learning</a> (2026, preprint)</li>
+                    <li><a href="https://arxiv.org/abs/2603.23244" target="_blank" rel="noopener">Online Library Learning in Human Visual Puzzle Solving</a> (CogSci 2026)</li>
+                </ul>
+            </div>
+            <div class="figure">
+                <svg viewBox="0 0 300 220" role="img" aria-label="Abstract placeholder: overlapping triangles and squares in purple, orange, and aqua">
+                    <polygon points="40,190 130,30 220,190" fill="#8e5bd4"/>
+                    <rect x="110" y="60" width="110" height="110" fill="#ff9f43"/>
+                    <polygon points="150,200 240,70 290,200" fill="#2ec4b6"/>
+                    <circle cx="170" cy="115" r="38" fill="#ff7eb6"/>
+                </svg>
+            </div>
+        </section>
+
+        <section class="theme" aria-labelledby="planning">
+            <div>
+                <h2 id="planning">Planning and world models</h2>
+                <p class="question">How can intelligent agents plan effectively in complex environments without considering every possible action or memorizing every detail of the world?</p>
+                <p>Human planning is remarkably efficient despite limits on memory, computation, and information. I study how people exploit the structure of their environments and learn cognitive maps adaptively to plan.</p>
+                <p>One direction of this research finds that cognitive maps can be represented as generative programs that capture the regularities of an environment, rather than complete descriptions of its spatial layout. Such representations can support resource-rational planning by enabling agents to reason about reusable components. These ideas also inform the development of world models for artificial agents, where compositional representations support learning and planning from limited experience.</p>
+                <h3>Selected research</h3>
+                <ul>
+                    <li><a href="https://arxiv.org/abs/2504.20628" target="_blank" rel="noopener">Cognitive Maps Are Generative Programs</a> (CogSci 2025)</li>
+                    <li><a href="https://doi.org/10.1371/journal.pcbi.1012582" target="_blank" rel="noopener">Approximate Planning in Spatial Search</a> (PLOS Computational Biology, 2024)</li>
+                    <li><a href="https://papers.neurips.cc/paper_files/paper/2025/hash/262dd62fd1bbb30d6a6b4d578f5e65ff-Abstract-Conference.html" target="_blank" rel="noopener">PoE-World: Compositional World Modeling with Products of Programmatic Experts</a> (NeurIPS 2025, Spotlight)</li>
+                </ul>
+            </div>
+            <div class="figure">
+                <svg viewBox="0 0 300 220" role="img" aria-label="Abstract placeholder: overlapping rectangles and circles in pink, aqua, and purple">
+                    <rect x="30" y="40" width="130" height="100" rx="6" fill="#ff7eb6"/>
+                    <rect x="110" y="80" width="150" height="110" rx="6" fill="#2ec4b6"/>
+                    <circle cx="90" cy="150" r="48" fill="#8e5bd4"/>
+                    <circle cx="215" cy="70" r="34" fill="#ff9f43"/>
+                </svg>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
