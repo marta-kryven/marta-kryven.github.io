@@ -6,55 +6,17 @@
     <title>CC Lab</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .container {
-            display: flex;
-            margin: 20px;
-        }
-        .main-content {
-            flex: 3;
-            padding: 20px;
-            margin-left: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-        }
-        .sidebar {
-            flex: 1;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-        }
-        .sidebar nav a {
-            display: flex;
-            align-items: center;
-            color: #333;
-            text-decoration: none;
-            padding: 10px 0;
-        }
-        .sidebar nav a:hover {
-            color: #575757;
-        }
-        .sidebar nav img {
-            margin-right: 10px;
-        }
-        .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .bibtex-author, .bibtex-title, .bibtex-journal, .bibtex-pages, .bibtex_display {
-            font-weight: normal; 
-            margin-left: 0; 
-            padding-left: 0; 
+        .home { max-width: 820px; margin: 0 auto; padding: 24px 32px 80px; }
+        .home-top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; gap: 16px; }
+        .home-photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
+        .home-id { text-align: center; }
+        .home-id h1 { margin: 16px 0 8px; }
+        .home-links { margin: 0; }
+        .home-links a, .home-body a { color: #007bff; }
+        .home-body { margin-top: 32px; text-align: left; line-height: 1.6; }
+        @media (max-width: 600px) {
+            .home { padding: 20px 20px 56px; }
+            .home-top { grid-template-columns: 1fr; justify-items: center; }
         }
     </style>
 </head>
@@ -69,46 +31,27 @@
             <a href="teaching.html">Teaching &amp; Resources</a>
         </nav>
     </header>
-    <div class="container">
-        <div class="sidebar">
-            <div class="photo-placeholder">
-                <img src="Assets/portrait.jpg" alt="Photo">
+    <main class="home">
+        <div class="home-top">
+            <img class="home-photo" src="Assets/portrait.jpg" alt="Marta Kryven">
+            <div class="home-id">
+                <h1>Marta Kryven</h1>
+                <p class="home-links">
+                    <a href="https://scholar.google.com/citations?user=5ogGlooAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Google Scholar</a> &middot;
+                    <a href="CV_academic_full.pdf" target="_blank" rel="noopener">CV</a> &middot;
+                    <a href="mailto:marta.kryven@protonmail.com">Email</a> &middot;
+                    <a href="https://www.linkedin.com/in/marta-kryven/" target="_blank" rel="noopener">LinkedIn</a>
+                </p>
             </div>
-
-            <h2>Marta Kryven</h2>
-            <p>Assistant professor at Dalhousie University</p>
-            <p>Co-Chair, CogSci 2027<br>Proceedings Committee, CCN 2027</p>
-            
-            <nav>
-                <a href="https://scholar.google.com/citations?user=5ogGlooAAAAJ&hl=en&oi=ao" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/google-scholar.png" alt="" width="20" height="20">Google Scholar
-                </a>
-                <a href="https://www.linkedin.com/in/marta-kryven/" target="_blank">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" alt="LinkedIn Icon" width="20" height="20">LinkedIn
-                </a>
-                <a href="mailto:marta.kryven@protonmail.com?subject=">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email" width="20" height="20">
-                    Get in touch
-                </a>
-            </nav>
         </div>
-        <div class="main-content">
 
-            <p>
-People excel at real-life tasks that remain challenging for modern AI — 
-    creatively solving problems they have not seen before, generalizing from a few examples, and inventing new tools.
-What is it that makes us so efficient?
-</p>
+        <div class="home-body">
+            <p>I am an Assistant Professor at Dalhousie University, departments of Computer Science, Psychology and Neuroscience, and the Founder of Northlight Intelligence.</p>
 
-            
-            <p> I am a computational cognitive scientist studying intelligent reasoning in humans and machines. 
-                My work focuses on how intelligent agents structure and represent knowledge, plan, and learn from limited data. 
-                I combine probabilistic modelling, neurosymbolic methods, and behavioural experiments to develop formal accounts of cognition, and use them to inform the design of AI systems that reason like minds do. 
-                Publications are available on <a href="https://scholar.google.com/citations?user=5ogGlooAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener">Google Scholar</a>. </p>
-                
-            <h2>Research interests</h2>
-            <p>computational cognitive science, probabilistic reasoning,
-            structured representations and inductive biases, theory of mind</p>
+            <p>I study the computational principles underlying human and artificial intelligence. My recent work has focused on how humans and LLMs learn <a href="https://arxiv.org/pdf/2605.09985" target="_blank" rel="noopener">abstractions</a> from limited experience, construct <a href="https://arxiv.org/pdf/2605.24528" target="_blank" rel="noopener">complex causal explanations</a>, and plan with <a href="https://openreview.net/pdf?id=Z3nbvxUat0" target="_blank" rel="noopener">compressed world models</a>. My lab combines behavioral experiments, Bayesian inference, program induction, and machine learning to develop computational theories of intelligence and translate insights from human cognition into AI.</p>
+
+            <p>My research has appeared in NeurIPS, ICLR, Nature Computational Science, PLOS Computational Biology, and Cognitive Science, including a NeurIPS 2025 Spotlight paper and work featured in Nature Computational Science's annual research highlights. I serve as Conference Co-Chair of CogSci 2027, on the Proceedings Committee of CCN 2027, and as an Area Chair for ICML 2027. I also founded the Computation and Cognition Symposium, bringing together researchers across cognitive science, neuroscience, and AI.</p>
+        </div>
 
             <!--
             <h2>Selected Publications</h2>
@@ -145,8 +88,6 @@ What is it that makes us so efficient?
                 <a href="https://arts.mit.edu/measuring-immersion-in-virtual-space/" target="_blank">Our project with Nikolaos Vlavianos on how people experience immersion in virtual spaces</a>
             </p>
             -->
-            
-        </div>
-    </div>
+    </main>
 </body>
 </html>
