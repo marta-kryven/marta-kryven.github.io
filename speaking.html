@@ -12,6 +12,10 @@
         .speaking-section { margin-top: 48px; }
         .talk { margin-top: 36px; padding-top: 24px; border-top: 3px solid #333; }
         .talk h3 { margin: 0 0 8px; font-size: 1.3rem; }
+        .tag { display: inline-block; margin-left: 10px; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; vertical-align: middle; white-space: nowrap; }
+        .tag-academic { background: #e3edf9; color: #1d4e89; }
+        .tag-industry { background: #e1f3e8; color: #1e6b3a; }
+        .tag-workshop { background: #fdebd3; color: #8a4b08; }
         .talk .target { color: #555; margin: 0 0 16px; }
         @media (max-width: 600px) {
             .speaking-page { padding: 36px 20px 56px; }
@@ -32,6 +36,46 @@
     <main class="speaking-page">
         <h1>Speaking</h1>
 
+        <section class="speaking-section" aria-labelledby="talks">
+            <h2 id="talks">Talk abstracts</h2>
+
+            <article class="talk">
+                <h3>How Minds Build Models of the World <span class="tag tag-academic">Academic talk</span></h3>
+                <p class="target"><strong>Target</strong> General academic audience across cognitive science, AI, neuroscience.</p>
+                <p>Humans can learn from remarkably little experience, solve unfamiliar problems, and navigate novel complex environments on their first exposure. Which mental representations make this possible?</p>
+                <p>This talk explores how people construct and use models of the world to support learning and reasoning. Drawing on research in cognitive maps, compositional abstraction, and causal learning, I will discuss computational mechanisms through which intelligent agents discover structure, invent hypotheses, and reuse knowledge across problems. I will show how behavioral experiments and computational models can help identify the principles underlying these abilities, and discuss what they suggest about the design of artificial systems capable of learning and reasoning more flexibly.</p>
+            </article>
+
+            <article class="talk">
+                <h3>Inventing Explanations: How Humans Learn from Uncertain Evidence <span class="tag tag-academic">Academic talk</span></h3>
+                <p class="target"><strong>Target</strong> General academic audience across cognitive science, AI, neuroscience and developmental psychology.</p>
+                <p>Much of what we know about the world must be inferred from incomplete, ambiguous, or unreliable evidence. Traditional computational models of learning often assume that the learner begins with a predefined set of possible explanations. But how do people discover explanations that they have never considered before? In this talk, I will present research investigating how children, adults and LLMs generate and evaluate causal hypotheses while learning about unfamiliar systems. What are the cognitive mechanisms by which we examine how learners formulate hypotheses, interpret uncertain evidence, and decide when to explore alternative explanations. I will also discuss comparisons between human-machine cognition, highlighting what these reveal about the computational mechanisms supporting learning in humans and machines, and its implications for rigorous model evaluation.</p>
+            </article>
+
+            <article class="talk">
+                <h3>What Should We Delegate to AI? <span class="tag tag-industry">Industry &amp; Applied AI</span></h3>
+                <p class="target"><strong>Target</strong> Technology companies, business leaders, AI industry conferences, innovation organizations</p>
+                <p>Advanced AI can perform tasks that recently required substantial human expertise. Yet deploying these capabilities effectively remains surprisingly difficult. AI systems excel at some complex tasks while struggling with apparently simple problems involving ambiguous goals or incomplete information. How can organizations determine which decisions to automate and where human judgment remains essential?</p>
+                <p>In this talk, I draw on research in cognitive science and AI capabilities to examine the strengths and limitations of human and machine reasoning. I will introduce a framework for analyzing work in terms of its underlying cognitive demands and discuss practical examples of how organizations can allocate tasks between humans and AI, design appropriate oversight, and evaluate whether automation is improving outcomes. As AI systems increasingly integrate in our society, the greatest value of AI comes from understanding how different forms of intelligence can work together.</p>
+            </article>
+
+            <article class="talk">
+                <h3>Computational Modelling for Non-Specialists <span class="tag tag-workshop">Workshop</span></h3>
+                <p class="target"><strong>Target</strong> Researchers, graduate students, and professionals interested in computational approaches to human behavior.</p>
+                <p>How can we turn informal theories about human behavior into precise, testable computational models?</p>
+                <p>This introductory workshop explains what computational models are, why they are useful, and how they can advance scientific understanding. Using examples from human decision-making, participants learn how to translate verbal explanations into mathematical models, generate behavioral predictions, and evaluate competing theories against empirical evidence. The workshop also explores the relationship between model complexity, explanatory power, and falsifiability.</p>
+            </article>
+
+            <article class="talk">
+                <h3>Code Zero to Superhero: AI-Assisted Coding Workshops <span class="tag tag-workshop">Workshop</span></h3>
+                <p class="target"><strong>Target</strong> Students, researchers, professionals, and anyone interested in using AI to write code, analyze data, or build computational tools.</p>
+                <p>Hands-on workshops introducing AI-assisted coding, tailored to participants' experience and goals. Topics range from getting started assuming no prior coding experience, effective use of AI coding assistants for data analytics for people with a programming background, and advanced AI agent skills for building and shipping complex projects.</p>
+                <p>Participants learn practical workflows for collaborating with AI coding tools, understanding and evaluating generated code, and developing useful applications without needing to become expert programmers.</p>
+                <p><strong>Format</strong> Available as standalone workshops or multi-session series, with content adapted to beginner, intermediate, or advanced audiences.</p>
+                <p><strong>Current offering</strong> <a href="https://www.eventbrite.ca/e/code-zero-to-superhero-an-ai-powered-python-series-tickets-2002746406414" target="_blank" rel="noopener">Code Zero to Superhero</a>, a three-part AI-powered Python workshop series delivered through SURGE Innovation at Dalhousie University (October&ndash;November 2026).</p>
+            </article>
+        </section>
+
         <section class="speaking-section" aria-labelledby="bio">
             <h2 id="bio">Bio</h2>
 
@@ -43,37 +87,6 @@
             <h3>Industry Speaker Bio</h3>
             <p>Dr. Marta Kryven is a cognitive scientist and AI researcher, an Assistant Professor at Dalhousie University, and an Affiliate Research Scientist at MIT. She directs the Computation and Cognition Lab, which investigates how humans and artificial intelligence systems learn, reason, plan, and make decisions under uncertainty. Her research has appeared in leading AI and scientific venues, including NeurIPS, ICLR, and Nature Computational Science.</p>
             <p>She is also the Founder and Chief Scientist of Northlight Intelligence, where she translates research on human and artificial cognition into practical approaches to AI adoption, delegation, and oversight. She serves as a Scientific Expert at Creative Destruction Lab and delivers workshops and mentorship on AI capabilities, evaluation, and effective human&ndash;AI collaboration.</p>
-        </section>
-
-        <section class="speaking-section" aria-labelledby="talks">
-            <h2 id="talks">Talk abstracts</h2>
-
-            <article class="talk">
-                <h3>How Minds Build Models of the World</h3>
-                <p class="target"><strong>Target</strong> General academic audience across cognitive science, AI, neuroscience.</p>
-                <p>Humans can learn from remarkably little experience, solve unfamiliar problems, and navigate novel complex environments on their first exposure. Which mental representations make this possible?</p>
-                <p>This talk explores how people construct and use models of the world to support learning and reasoning. Drawing on research in cognitive maps, compositional abstraction, and causal learning, I will discuss computational mechanisms through which intelligent agents discover structure, invent hypotheses, and reuse knowledge across problems. I will show how behavioral experiments and computational models can help identify the principles underlying these abilities, and discuss what they suggest about the design of artificial systems capable of learning and reasoning more flexibly.</p>
-            </article>
-
-            <article class="talk">
-                <h3>Inventing Explanations: How Humans Learn from Uncertain Evidence</h3>
-                <p class="target"><strong>Target</strong> General academic audience across cognitive science, AI, neuroscience and developmental psychology.</p>
-                <p>Much of what we know about the world must be inferred from incomplete, ambiguous, or unreliable evidence. Traditional computational models of learning often assume that the learner begins with a predefined set of possible explanations. But how do people discover explanations that they have never considered before? In this talk, I will present research investigating how children, adults and LLMs generate and evaluate causal hypotheses while learning about unfamiliar systems. What are the cognitive mechanisms by which we examine how learners formulate hypotheses, interpret uncertain evidence, and decide when to explore alternative explanations. I will also discuss comparisons between human-machine cognition, highlighting what these reveal about the computational mechanisms supporting learning in humans and machines, and its implications for rigorous model evaluation.</p>
-            </article>
-
-            <article class="talk">
-                <h3>What Should We Delegate to AI?</h3>
-                <p class="target"><strong>Target</strong> Technology companies, business leaders, AI industry conferences, innovation organizations</p>
-                <p>Advanced AI can perform tasks that recently required substantial human expertise. Yet deploying these capabilities effectively remains surprisingly difficult. AI systems excel at some complex tasks while struggling with apparently simple problems involving ambiguous goals or incomplete information. How can organizations determine which decisions to automate and where human judgment remains essential?</p>
-                <p>In this talk, I draw on research in cognitive science and AI capabilities to examine the strengths and limitations of human and machine reasoning. I will introduce a framework for analyzing work in terms of its underlying cognitive demands and discuss practical examples of how organizations can allocate tasks between humans and AI, design appropriate oversight, and evaluate whether automation is improving outcomes. As AI systems increasingly integrate in our society, the greatest value of AI comes from understanding how different forms of intelligence can work together.</p>
-            </article>
-
-            <article class="talk">
-                <h3>Computational Modelling for Non-Specialists</h3>
-                <p class="target"><strong>Target</strong> Researchers, graduate students, and professionals interested in computational approaches to human behavior.</p>
-                <p>How can we turn informal theories about human behavior into precise, testable computational models?</p>
-                <p>This introductory workshop explains what computational models are, why they are useful, and how they can advance scientific understanding. Using examples from human decision-making, participants learn how to translate verbal explanations into mathematical models, generate behavioral predictions, and evaluate competing theories against empirical evidence. The workshop also explores the relationship between model complexity, explanatory power, and falsifiability.</p>
-            </article>
         </section>
     </main>
 </body>
